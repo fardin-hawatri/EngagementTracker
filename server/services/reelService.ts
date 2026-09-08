@@ -1,31 +1,46 @@
 import { applyClassification } from "../../shared/classifier";
 import { deriveTitle } from "../../shared/format";
 import type { Reel } from "../../shared/types";
+import { resolveProfile } from "../config/profiles";
 import { fetchAccount } from "../instagram/account";
 import { mapPool } from "../instagram/client";
 import { fetchMediaInsights } from "../instagram/insights";
 import { fetchAllMedia, isReel } from "../instagram/media";
-import { getInflight, getSnapshot, setInflight, setProgress, setSnapshot, type CacheSnapshot } from "./cacheService";
+import { runWithProfile } from "../profiles/context";
+import {
+  getInflight,
+  getSnapshot,
+  setInflight,
+  setProgress,
+  setSnapshot,
+  type CacheSnapshot,
+} from "./cacheService";
 
 const INSIGHT_CONCURRENCY = 8;
 
-export async function loadDataset(force = false): Promise<CacheSnapshot> {
-  const cached = getSnapshot();
-  if (cached && !force) return cached;
-  const existing = getInflight();
-  if (existing) return existing;
+export async function loadDataset(profileId: string | null | undefined, force = false): Promise<CacheSnapshot> {
+  const profile = resolveProfile(profileId);
+  return runWithProfile(profile, async () => {
+    const cached = getSnapshot(profile.id);
+    if (cached && !force) return cached;
+    const existing = getInflight(profile.id);
+    if (existing) return existing;
 
-  const promise = refreshDataset();
-  setInflight(promise);
-  try {
-    return await promise;
-  } finally {
-    setInflight(null);
-  }
+    const promise = refreshDataset(profile.id, profile.platform);
+    setInflight(profile.id, promise);
+    try {
+      return await promise;
+    } finally {
+      setInflight(profile.id, null);
+    }
+  });
 }
 
-async function refreshDataset(): Promise<CacheSnapshot> {
-  setProgress({
+async function refreshDataset(
+  profileId: string,
+  platform: CacheSnapshot["platform"],
+): Promise<CacheSnapshot> {
+  setProgress(profileId, {
     phase: "account",
     message: "Connecting to Instagram",
     mediaFetched: 0,
@@ -36,13 +51,13 @@ async function refreshDataset(): Promise<CacheSnapshot> {
 
   const account = await fetchAccount();
 
-  setProgress({ phase: "media", message: "Fetching Reel dataset..." });
+  setProgress(profileId, { phase: "media", message: "Fetching Reel dataset..." });
   const media = await fetchAllMedia((count) => {
-    setProgress({ mediaFetched: count, message: `Fetching media page · ${count} items` });
+    setProgress(profileId, { mediaFetched: count, message: `Fetching media page · ${count} items` });
   });
 
   const reelsMedia = media.filter(isReel);
-  setProgress({
+  setProgress(profileId, {
     phase: "insights",
     message: "Analyzing content...",
     insightsTotal: reelsMedia.length,
@@ -70,7 +85,7 @@ async function refreshDataset(): Promise<CacheSnapshot> {
       }
     },
     (done) => {
-      setProgress({
+      setProgress(profileId, {
         insightsDone: done,
         message: `Building intelligence... ${done}/${reelsMedia.length} insight requests`,
       });
@@ -120,7 +135,9 @@ async function refreshDataset(): Promise<CacheSnapshot> {
     });
   });
 
-  const snapshot = {
+  const snapshot: CacheSnapshot = {
+    profileId,
+    platform,
     account,
     reels,
     fetchedAt: new Date().toISOString(),
@@ -132,6 +149,6 @@ async function refreshDataset(): Promise<CacheSnapshot> {
     availableMetrics: [...metricSet],
   };
 
-  setSnapshot(snapshot);
+  setSnapshot(profileId, snapshot);
   return snapshot;
 }

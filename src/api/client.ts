@@ -1,34 +1,75 @@
-import type { DatasetPayload, FetchProgress, InstagramAccount } from "@shared/types";
+import type {
+  ConnectedProfile,
+  DatasetPayload,
+  FetchProgress,
+  InstagramAccount,
+} from "@shared/types";
+
+const API_BASE = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
+
+function apiUrl(path: string): string {
+  return `${API_BASE}${path}`;
+}
+
+function withProfile(path: string, profileId?: string | null): string {
+  if (!profileId) return path;
+  const joiner = path.includes("?") ? "&" : "?";
+  return `${path}${joiner}profile=${encodeURIComponent(profileId)}`;
+}
 
 async function readJson<T>(response: Response): Promise<T> {
-  const payload = (await response.json()) as T & { error?: string };
-  if (!response.ok) {
-    throw new Error(payload.error || `Request failed (${response.status})`);
+  const text = await response.text();
+  let payload: (T & { error?: string }) | null = null;
+
+  try {
+    payload = text ? (JSON.parse(text) as T & { error?: string }) : null;
+  } catch {
+    throw new Error(
+      `API returned non-JSON (${response.status}). Check VITE_API_URL and that the Render API is running.`,
+    );
   }
+
+  if (!response.ok) {
+    throw new Error(payload?.error || `Request failed (${response.status})`);
+  }
+
+  if (payload === null) {
+    throw new Error(`Empty API response (${response.status})`);
+  }
+
   return payload;
 }
 
 async function apiFetch<T>(url: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(url, { ...init, signal: init?.signal ?? AbortSignal.timeout(180_000) });
+  const response = await fetch(apiUrl(url), {
+    ...init,
+    signal: init?.signal ?? AbortSignal.timeout(180_000),
+  });
   return readJson<T>(response);
+}
+
+export async function fetchProfiles(): Promise<{ profiles: ConnectedProfile[]; defaultProfileId: string }> {
+  return apiFetch("/api/instagram/profiles");
 }
 
 export async function fetchHealth(): Promise<{ ok: boolean }> {
   return apiFetch("/api/health");
 }
 
-export async function fetchProgress(): Promise<FetchProgress> {
-  return apiFetch("/api/instagram/status");
+export async function fetchProgress(profileId: string): Promise<FetchProgress> {
+  return apiFetch(withProfile("/api/instagram/status", profileId));
 }
 
-export async function fetchDataset(): Promise<DatasetPayload> {
-  return apiFetch("/api/instagram/reels");
+export async function fetchDataset(profileId: string): Promise<DatasetPayload> {
+  return apiFetch(withProfile("/api/instagram/reels", profileId));
 }
 
-export async function refreshDataset(): Promise<DatasetPayload> {
-  return apiFetch("/api/instagram/refresh", { method: "POST" });
+export async function refreshDataset(profileId: string): Promise<DatasetPayload> {
+  return apiFetch(withProfile("/api/instagram/refresh", profileId), { method: "POST" });
 }
 
-export async function fetchAccount(): Promise<{ account: InstagramAccount; fetchedAt: string }> {
-  return apiFetch("/api/instagram/account");
+export async function fetchAccount(
+  profileId: string,
+): Promise<{ account: InstagramAccount; fetchedAt: string; profileId: string }> {
+  return apiFetch(withProfile("/api/instagram/account", profileId));
 }

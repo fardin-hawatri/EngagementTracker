@@ -4,6 +4,7 @@ import { applyClassification } from "@shared/classifier";
 import { computeAnalytics } from "@shared/analytics";
 import type {
   AnalyticsBundle,
+  ConnectedProfile,
   ContentType,
   DatasetPayload,
   EnrichedReel,
@@ -11,10 +12,11 @@ import type {
   ManualOverride,
   Reel,
 } from "@shared/types";
-import { fetchDataset, fetchProgress, refreshDataset } from "../api/client";
+import { fetchDataset, fetchProfiles, fetchProgress, refreshDataset } from "../api/client";
 import { reelInDateRange, useFilters } from "./useFilters";
 
-const OVERRIDE_KEY = "content-intel-overrides";
+const OVERRIDE_KEY_PREFIX = "content-intel-overrides:";
+const ACTIVE_PROFILE_KEY = "content-intel-active-profile";
 
 type LoadState = "loading" | "success" | "partial" | "empty" | "error";
 
@@ -23,6 +25,10 @@ interface DatasetContextValue {
   error: string | null;
   progress: FetchProgress | null;
   payload: DatasetPayload | null;
+  profiles: ConnectedProfile[];
+  activeProfileId: string | null;
+  activeProfile: ConnectedProfile | null;
+  setActiveProfileId: (profileId: string) => void;
   reels: Reel[];
   filteredReels: Reel[];
   analytics: AnalyticsBundle;
@@ -37,12 +43,25 @@ interface DatasetContextValue {
 
 const DatasetContext = createContext<DatasetContextValue | null>(null);
 
-function readOverrides(): Record<string, ManualOverride> {
+function overrideKey(profileId: string): string {
+  return `${OVERRIDE_KEY_PREFIX}${profileId}`;
+}
+
+function readOverrides(profileId: string | null): Record<string, ManualOverride> {
+  if (!profileId) return {};
   try {
-    const raw = localStorage.getItem(OVERRIDE_KEY);
+    const raw = localStorage.getItem(overrideKey(profileId));
     return raw ? (JSON.parse(raw) as Record<string, ManualOverride>) : {};
   } catch {
     return {};
+  }
+}
+
+function readStoredProfileId(): string | null {
+  try {
+    return localStorage.getItem(ACTIVE_PROFILE_KEY);
+  } catch {
+    return null;
   }
 }
 
@@ -69,45 +88,106 @@ function matchesSearch(reel: Reel, search: string): boolean {
 
 export function DatasetProvider({ children }: { children: ReactNode }) {
   const filters = useFilters();
+  const [profiles, setProfiles] = useState<ConnectedProfile[]>([]);
+  const [activeProfileId, setActiveProfileIdState] = useState<string | null>(readStoredProfileId);
   const [payload, setPayload] = useState<DatasetPayload | null>(null);
   const [progress, setProgress] = useState<FetchProgress | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [overrides, setOverrides] = useState<Record<string, ManualOverride>>(readOverrides);
+  const [overrides, setOverrides] = useState<Record<string, ManualOverride>>(() => readOverrides(readStoredProfileId()));
   const [selectedReelId, setSelectedReelId] = useState<string | null>(null);
 
-  const load = useCallback(async (force: boolean) => {
-    setError(null);
-    if (force) setRefreshing(true);
-    else setLoading(true);
-    const poll = window.setInterval(async () => {
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
       try {
-        setProgress(await fetchProgress());
-      } catch {
-        /* ignore poll errors */
+        const data = await fetchProfiles();
+        if (cancelled) return;
+        const available = data.profiles.filter((profile) => profile.configured);
+        setProfiles(available);
+        if (available.length === 0) {
+          setError(
+            "No connected profiles configured. Set INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_ACCESS_TOKEN_GLOBAL on the API.",
+          );
+          setLoading(false);
+          return;
+        }
+        setActiveProfileIdState((current) => {
+          if (current && available.some((profile) => profile.id === current)) return current;
+          const next = available.some((profile) => profile.id === data.defaultProfileId)
+            ? data.defaultProfileId
+            : available[0]?.id || null;
+          if (next) {
+            try {
+              localStorage.setItem(ACTIVE_PROFILE_KEY, next);
+            } catch {
+              /* ignore */
+            }
+          }
+          return next;
+        });
+      } catch (err) {
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : "Failed to load connected profiles");
+          setLoading(false);
+        }
       }
-    }, 800);
-    try {
-      const data = force ? await refreshDataset() : await fetchDataset();
-      setPayload(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load Instagram data");
-    } finally {
-      window.clearInterval(poll);
-      try {
-        setProgress(await fetchProgress());
-      } catch {
-        /* ignore */
-      }
-      setLoading(false);
-      setRefreshing(false);
-    }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
+  const setActiveProfileId = useCallback((profileId: string) => {
+    setActiveProfileIdState(profileId);
+    try {
+      localStorage.setItem(ACTIVE_PROFILE_KEY, profileId);
+    } catch {
+      /* ignore */
+    }
+    setOverrides(readOverrides(profileId));
+    setSelectedReelId(null);
+    setPayload(null);
+    setProgress(null);
+    setError(null);
+  }, []);
+
+  const load = useCallback(
+    async (force: boolean, profileId: string) => {
+      setError(null);
+      if (force) setRefreshing(true);
+      else setLoading(true);
+      const poll = window.setInterval(async () => {
+        try {
+          setProgress(await fetchProgress(profileId));
+        } catch {
+          /* ignore poll errors */
+        }
+      }, 800);
+      try {
+        const data = force ? await refreshDataset(profileId) : await fetchDataset(profileId);
+        setPayload(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to load Instagram data");
+      } finally {
+        window.clearInterval(poll);
+        try {
+          setProgress(await fetchProgress(profileId));
+        } catch {
+          /* ignore */
+        }
+        setLoading(false);
+        setRefreshing(false);
+      }
+    },
+    [],
+  );
+
   useEffect(() => {
-    void load(false);
-  }, [load]);
+    if (!activeProfileId) return;
+    void load(false, activeProfileId);
+  }, [activeProfileId, load]);
 
   const reels = useMemo(() => (payload ? applyOverrides(payload.reels, overrides) : []), [payload, overrides]);
 
@@ -126,14 +206,14 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
 
   const performanceFiltered = useMemo(() => {
     if (filters.performance === "ALL") return analytics;
-    const reels = analytics.reels.filter((reel) => {
+    const nextReels = analytics.reels.filter((reel) => {
       if (filters.performance === "BREAKOUT") return reel.isBreakout;
       if (filters.performance === "UNDER") return reel.isUnderperforming;
       if (filters.performance === "ABOVE") return reel.performanceStatus === "ABOVE" || reel.performanceStatus === "BREAKOUT";
       if (filters.performance === "BELOW") return reel.performanceStatus === "BELOW" || reel.performanceStatus === "UNDER";
       return true;
     });
-    return { ...analytics, reels };
+    return { ...analytics, reels: nextReels };
   }, [analytics, filters.performance]);
 
   const selectedReel = useMemo(
@@ -141,13 +221,22 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
     [performanceFiltered.reels, selectedReelId],
   );
 
-  const setOverride = useCallback((reelId: string, override: ManualOverride) => {
-    setOverrides((current) => {
-      const next = { ...current, [reelId]: override };
-      localStorage.setItem(OVERRIDE_KEY, JSON.stringify(next));
-      return next;
-    });
-  }, []);
+  const setOverride = useCallback(
+    (reelId: string, override: ManualOverride) => {
+      if (!activeProfileId) return;
+      setOverrides((current) => {
+        const next = { ...current, [reelId]: override };
+        localStorage.setItem(overrideKey(activeProfileId), JSON.stringify(next));
+        return next;
+      });
+    },
+    [activeProfileId],
+  );
+
+  const activeProfile = useMemo(
+    () => profiles.find((profile) => profile.id === activeProfileId) ?? null,
+    [profiles, activeProfileId],
+  );
 
   const state: LoadState = loading
     ? "loading"
@@ -167,18 +256,39 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
       error,
       progress,
       payload,
+      profiles,
+      activeProfileId,
+      activeProfile,
+      setActiveProfileId,
       reels,
       filteredReels: performanceFiltered.reels,
       analytics: performanceFiltered,
       selectedReelId,
       selectedReel,
       setSelectedReelId,
-      refresh: () => load(true),
+      refresh: () => (activeProfileId ? load(true, activeProfileId) : Promise.resolve()),
       refreshing,
       setOverride,
       overrides,
     }),
-    [state, error, progress, payload, reels, performanceFiltered, selectedReelId, selectedReel, load, refreshing, setOverride, overrides],
+    [
+      state,
+      error,
+      progress,
+      payload,
+      profiles,
+      activeProfileId,
+      activeProfile,
+      setActiveProfileId,
+      reels,
+      performanceFiltered,
+      selectedReelId,
+      selectedReel,
+      load,
+      refreshing,
+      setOverride,
+      overrides,
+    ],
   );
 
   return createElement(DatasetContext.Provider, { value }, children);

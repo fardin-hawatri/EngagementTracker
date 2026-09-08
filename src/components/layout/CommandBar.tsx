@@ -1,10 +1,11 @@
-import { Download, Moon, RefreshCw, Search, Sun, User } from "lucide-react";
+import { Download, Moon, RefreshCw, Search, Sun } from "lucide-react";
 import type { DatePreset } from "@shared/types";
 import { reelsToCsv } from "@shared/csv";
 import { downloadCsv } from "../../lib/downloadCsv";
 import { useDataset } from "../../hooks/useDataset";
 import { useFilters } from "../../hooks/useFilters";
 import { useTheme } from "../../hooks/useTheme";
+import { ProfileSwitcher } from "./ProfileSwitcher";
 
 const PRESETS: DatePreset[] = ["7D", "30D", "90D", "YTD", "ALL"];
 
@@ -16,12 +17,13 @@ export function CommandBar({
   onMenu: () => void;
 }) {
   const { search, setSearch, date, setDatePreset, setCustomRange, rangeLabel } = useFilters();
-  const { refresh, refreshing, analytics, payload } = useDataset();
+  const { refresh, refreshing, analytics, activeProfile } = useDataset();
   const { theme, toggleTheme } = useTheme();
 
   const exportCsv = () => {
+    const slug = activeProfile?.id || "reels";
     const csv = reelsToCsv(analytics.reels);
-    downloadCsv(`content-intel-reels-${new Date().toISOString().slice(0, 10)}.csv`, csv);
+    downloadCsv(`content-intel-${slug}-${new Date().toISOString().slice(0, 10)}.csv`, csv);
   };
 
   const presetButtons = (
@@ -129,9 +131,7 @@ export function CommandBar({
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-[var(--primary-strong)] text-[var(--on-primary)]" title={payload?.account.username || "Account"}>
-            <User size={16} />
-          </div>
+          <ProfileSwitcher />
         </div>
       </div>
       <div className="flex items-center overflow-x-auto border-t border-[var(--border)] xl:hidden" aria-label="Date range">

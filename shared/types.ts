@@ -24,6 +24,18 @@ export type OpportunityQuadrant = "DOUBLE_DOWN" | "OPTIMIZE" | "EXPLORE" | "REVI
 
 export type DatePreset = "7D" | "30D" | "90D" | "YTD" | "ALL" | "CUSTOM";
 
+/** Platforms the app can connect. Facebook is reserved for a later connector. */
+export type ConnectedPlatform = "instagram" | "facebook";
+
+export interface ConnectedProfile {
+  id: string;
+  label: string;
+  platform: ConnectedPlatform;
+  /** Display hint from config; live username comes from the synced account. */
+  usernameHint: string | null;
+  configured: boolean;
+}
+
 export interface InstagramAccount {
   id: string;
   username: string;
@@ -76,6 +88,8 @@ export interface Reel {
 }
 
 export interface DatasetPayload {
+  profileId: string;
+  platform: ConnectedPlatform;
   account: InstagramAccount;
   reels: Reel[];
   fetchedAt: string;

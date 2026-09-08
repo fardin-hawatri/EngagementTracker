@@ -28,8 +28,9 @@ export function Sidebar({
 }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { payload, progress } = useDataset();
-  const username = payload?.account.username;
+  const { payload, progress, activeProfile } = useDataset();
+  const username = payload?.account.username || activeProfile?.usernameHint;
+  const platform = activeProfile?.platform || payload?.platform || "instagram";
   const connected = Boolean(payload);
 
   const go = (to: string) => {
@@ -55,7 +56,7 @@ export function Sidebar({
             <img src="/performance.svg" alt="Content Intel" className="h-8 w-8" />
             <div className="flex min-w-0 flex-col">
               <span className="text-base font-semibold uppercase leading-none tracking-tight">Content Intel</span>
-              <span className="label-caps mt-0.5 text-[var(--text-2)]">Instagram Reels Intelligence</span>
+              <span className="label-caps mt-0.5 text-[var(--text-2)]">Multi-profile intelligence</span>
             </div>
           </div>
           <div className="flex items-center justify-between border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-2)_40%,transparent)] px-4 py-2">
@@ -89,9 +90,9 @@ export function Sidebar({
         </div>
         <div className="border-t border-[var(--border)] bg-[var(--surface-0)] p-4">
           <div className="flex flex-col gap-1 border border-[var(--border)] bg-[var(--surface-2)] p-2">
-            <div className="flex items-center justify-between">
-              <span className="metric text-xs font-semibold">@{username || "instagram"}</span>
-              <span className="label-caps text-[var(--primary)]">V1 INTEL</span>
+            <div className="flex items-center justify-between gap-2">
+              <span className="metric truncate text-xs font-semibold">@{username || "instagram"}</span>
+              <span className="label-caps shrink-0 text-[var(--primary)]">{platform}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className={`h-2 w-2 ${connected ? "bg-[var(--positive)]" : "bg-[var(--warning)]"}`} />

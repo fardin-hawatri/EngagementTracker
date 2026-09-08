@@ -7,7 +7,18 @@ import { useTheme } from "../../hooks/useTheme";
 import { Section } from "../../components/common/Section";
 
 export function SettingsPage() {
-  const { payload, progress, refresh, refreshing, analytics, overrides } = useDataset();
+  const {
+    payload,
+    progress,
+    refresh,
+    refreshing,
+    analytics,
+    overrides,
+    profiles,
+    activeProfileId,
+    activeProfile,
+    setActiveProfileId,
+  } = useDataset();
   const { theme, toggleTheme } = useTheme();
   const overrideCount = Object.values(overrides).filter((item) => item.topic || item.contentType).length;
 
@@ -18,8 +29,34 @@ export function SettingsPage() {
         <h1 className="text-2xl font-semibold uppercase">Settings</h1>
       </div>
 
-      <Section title="Instagram account" explanation="Connection uses the server-side Instagram access token. The browser never receives the token.">
+      <Section
+        title="Connected profiles"
+        explanation="Switch profiles from the top-right control. Tokens stay on the server. Facebook can be added later with the same switcher."
+      >
+        <div className="mb-4 grid grid-cols-1 gap-2 md:grid-cols-2">
+          {profiles.map((profile) => {
+            const active = profile.id === activeProfileId;
+            return (
+              <button
+                key={profile.id}
+                type="button"
+                onClick={() => setActiveProfileId(profile.id)}
+                className={`border px-3 py-2 text-left ${
+                  active ? "border-[var(--primary-strong)] bg-[var(--surface-3)]" : "border-[var(--border)] bg-[var(--surface-2)] hover:bg-[var(--surface-3)]"
+                }`}
+              >
+                <div className="metric text-xs font-semibold text-[var(--text)]">@{profile.usernameHint || profile.label}</div>
+                <div className="label-caps mt-1 text-[var(--text-3)]">
+                  {profile.platform}
+                  {active ? " · active" : ""}
+                </div>
+              </button>
+            );
+          })}
+        </div>
         <div className="grid grid-cols-1 gap-px border border-[var(--border)] bg-[var(--border)] md:grid-cols-2 xl:grid-cols-4">
+          <Info label="Active profile" value={activeProfile?.label || "—"} />
+          <Info label="Platform" value={payload?.platform || activeProfile?.platform || "—"} />
           <Info label="Username" value={payload?.account.username ? `@${payload.account.username}` : "—"} />
           <Info label="Account type" value={payload?.account.accountType || "—"} />
           <Info label="Media count" value={String(payload?.account.mediaCount ?? "—")} />
@@ -84,7 +121,7 @@ export function SettingsPage() {
 
       <Section title="Classification rules" explanation="Keyword rules live in shared/taxonomy.ts and shared/rules.ts. Captions, titles, and hashtags are normalized before matching.">
         <p className="text-sm text-[var(--text-2)]">
-          Manual overrides persist in localStorage and survive Instagram refresh. Current overrides: {overrideCount}.
+          Manual overrides persist per profile in localStorage and survive Instagram refresh. Current overrides for this profile: {overrideCount}.
         </p>
       </Section>
 

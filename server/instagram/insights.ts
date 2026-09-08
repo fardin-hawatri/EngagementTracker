@@ -1,3 +1,4 @@
+import { getActiveProfile } from "../profiles/context";
 import { InstagramApiError, igFetch } from "./client";
 
 export interface InsightBag {
@@ -32,7 +33,7 @@ const METRIC_SETS = [
   "plays",
 ];
 
-let workingMetricSet: string | null = null;
+const workingMetricSets = new Map<string, string>();
 
 function readMetric(entry: InsightEntry): number | null {
   if (typeof entry.value === "number") return entry.value;
@@ -87,14 +88,16 @@ function parseInsights(payload: InsightsResponse): InsightBag {
 }
 
 export async function fetchMediaInsights(mediaId: string): Promise<InsightBag> {
+  const profileId = getActiveProfile().id;
   let lastError: unknown = null;
-  const sets = workingMetricSet ? [workingMetricSet, ...METRIC_SETS.filter((item) => item !== workingMetricSet)] : METRIC_SETS;
+  const preferred = workingMetricSets.get(profileId) ?? null;
+  const sets = preferred ? [preferred, ...METRIC_SETS.filter((item) => item !== preferred)] : METRIC_SETS;
   for (const metric of sets) {
     try {
       const payload = await igFetch<InsightsResponse>(`/${mediaId}/insights`, { metric });
       const parsed = parseInsights(payload);
       if (parsed.ok || (payload.data && payload.data.length > 0)) {
-        workingMetricSet = metric;
+        workingMetricSets.set(profileId, metric);
         return parsed;
       }
     } catch (error) {

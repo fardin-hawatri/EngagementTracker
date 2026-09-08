@@ -1,5 +1,8 @@
+import { getActiveProfile } from "../profiles/context";
+
 const GRAPH_VERSION = "v21.0";
-const GRAPH_BASE = `https://graph.instagram.com/${GRAPH_VERSION}`;
+const INSTAGRAM_GRAPH_BASE = `https://graph.instagram.com/${GRAPH_VERSION}`;
+const FACEBOOK_GRAPH_BASE = `https://graph.facebook.com/${GRAPH_VERSION}`;
 const REQUEST_TIMEOUT_MS = 12_000;
 const MAX_RETRIES = 2;
 
@@ -15,12 +18,14 @@ export class InstagramApiError extends Error {
   }
 }
 
+function getGraphBase(): string {
+  const profile = getActiveProfile();
+  if (profile.platform === "facebook") return FACEBOOK_GRAPH_BASE;
+  return INSTAGRAM_GRAPH_BASE;
+}
+
 function getToken(): string {
-  const token = process.env.INSTAGRAM_ACCESS_TOKEN;
-  if (!token) {
-    throw new InstagramApiError("INSTAGRAM_ACCESS_TOKEN is not configured.", 500, null);
-  }
-  return token;
+  return getActiveProfile().token;
 }
 
 async function delay(ms: number): Promise<void> {
@@ -30,7 +35,7 @@ async function delay(ms: number): Promise<void> {
 export async function igFetch<T>(pathOrUrl: string, params: Record<string, string> = {}, retry = 0): Promise<T> {
   const token = getToken();
   const isAbsolute = pathOrUrl.startsWith("http");
-  const url = isAbsolute ? new URL(pathOrUrl) : new URL(`${GRAPH_BASE}${pathOrUrl}`);
+  const url = isAbsolute ? new URL(pathOrUrl) : new URL(`${getGraphBase()}${pathOrUrl}`);
   if (!isAbsolute) {
     for (const [key, value] of Object.entries(params)) {
       url.searchParams.set(key, value);
@@ -47,7 +52,7 @@ export async function igFetch<T>(pathOrUrl: string, params: Record<string, strin
     const json = (await response.json()) as T & { error?: { message?: string; code?: number } };
     if (!response.ok || (json as { error?: { message?: string } }).error) {
       const status = response.status;
-      const message = (json as { error?: { message?: string } }).error?.message || `Instagram request failed (${status})`;
+      const message = (json as { error?: { message?: string } }).error?.message || `Graph request failed (${status})`;
       const retryable = status === 429 || status >= 500;
       if (retryable && retry < MAX_RETRIES) {
         const wait = status === 429 ? 2000 * (retry + 1) : 800 * (retry + 1);
@@ -63,7 +68,7 @@ export async function igFetch<T>(pathOrUrl: string, params: Record<string, strin
       await delay(800 * (retry + 1));
       return igFetch<T>(pathOrUrl, params, retry + 1);
     }
-    const message = error instanceof Error ? error.message : "Instagram request failed";
+    const message = error instanceof Error ? error.message : "Graph request failed";
     throw new InstagramApiError(message, 502, null);
   } finally {
     clearTimeout(timeout);

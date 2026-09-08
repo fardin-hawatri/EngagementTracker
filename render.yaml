@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: content-intel-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: INSTAGRAM_ACCESS_TOKEN
+        sync: false
+      - key: INSTAGRAM_ACCESS_TOKEN_GLOBAL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
