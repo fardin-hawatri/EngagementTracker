@@ -16,7 +16,7 @@ const TITLES: Record<string, string> = {
 };
 
 export function AppShell() {
-  const { state, error, refresh, selectedReelId, setSelectedReelId } = useDataset();
+  const { state, error, selectedReelId, setSelectedReelId } = useDataset();
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const showOverlayInspector = Boolean(selectedReelId) && !location.pathname.startsWith("/reels");
@@ -25,7 +25,9 @@ export function AppShell() {
     (location.pathname.startsWith("/topics/") ? "Topic Detail" : "Reels Intelligence Engine");
 
   if (state === "loading") return <LoadingScreen />;
-  if (state === "error") return <ErrorScreen message={error || "Unknown error"} onRetry={() => void refresh()} />;
+  if (state === "error") {
+    return <ErrorScreen message={error || "Unknown error"} onRetry={() => window.location.reload()} />;
+  }
 
   return (
     <div className="min-h-screen bg-[var(--canvas)]">

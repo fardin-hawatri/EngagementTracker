@@ -40,12 +40,37 @@ async function readJson<T>(response: Response): Promise<T> {
   return payload;
 }
 
+function toUserError(err: unknown): Error {
+  const message = err instanceof Error ? err.message : String(err);
+  const name = err instanceof Error ? err.name : "";
+  if (
+    message.includes("NetworkError") ||
+    message === "Failed to fetch" ||
+    message === "Load failed" ||
+    (name === "TypeError" && /fetch|network/i.test(message))
+  ) {
+    return new Error(
+      "Cannot reach the API from this site (browser blocked the request). Wait for the Render API to redeploy, then retry. If it persists, set CORS_ORIGINS on Render to your Vercel URL.",
+    );
+  }
+  if (name === "TimeoutError" || name === "AbortError") {
+    return new Error("The API took too long to respond. Render may be waking up — wait a few seconds and retry.");
+  }
+  return err instanceof Error ? err : new Error(message);
+}
+
 async function apiFetch<T>(url: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(apiUrl(url), {
-    ...init,
-    signal: init?.signal ?? AbortSignal.timeout(180_000),
-  });
-  return readJson<T>(response);
+  try {
+    const response = await fetch(apiUrl(url), {
+      ...init,
+      credentials: "omit",
+      mode: "cors",
+      signal: init?.signal ?? AbortSignal.timeout(180_000),
+    });
+    return await readJson<T>(response);
+  } catch (err) {
+    throw toUserError(err);
+  }
 }
 
 export async function fetchProfiles(): Promise<{ profiles: ConnectedProfile[]; defaultProfileId: string }> {

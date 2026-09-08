@@ -43,8 +43,7 @@ Only profiles with a token set appear in the switcher. To add Facebook later, ad
 4. Environment variables:
    - `INSTAGRAM_ACCESS_TOKEN` = token for **mallika.some**
    - `INSTAGRAM_ACCESS_TOKEN_GLOBAL` = token for **mallika.some.global**
-   - `CORS_ORIGINS` = your Vercel URL(s), comma-separated  
-     Example: `https://your-app.vercel.app,https://your-app-git-main-user.vercel.app`
+   - `CORS_ORIGINS` = optional. The API already allows `*.vercel.app`. Set this if you use a custom domain.
 5. Deploy and copy the public URL, e.g. `https://content-intel-api.onrender.com`
 6. Confirm health: open `https://YOUR-API.onrender.com/api/health` — should return JSON including configured profiles
 
@@ -62,14 +61,14 @@ Free Render services sleep after idle time. Create an [UptimeRobot](https://upti
 3. Environment variable:
    - `VITE_API_URL` = `https://YOUR-API.onrender.com` (no trailing slash)
 4. Deploy.
-5. Copy the Vercel URL and add it to Render `CORS_ORIGINS`, then **redeploy the API** (or restart) so CORS picks it up.
+5. Copy the Vercel URL. If you use a custom domain (not `*.vercel.app`), add it to Render `CORS_ORIGINS` and restart the API.
 
 ### 4. Verify
 
 1. Open the Vercel site.
 2. Use the top-right profile control to switch between Instagram accounts.
 3. First sync per profile can take a minute or two.
-4. If you see a CORS error, the Vercel origin is missing from `CORS_ORIGINS`.
+4. If you see **NetworkError / Failed to fetch**, the API blocked the Vercel origin. Redeploy the API (CORS now allows `*.vercel.app`).
 5. If you see a non-JSON API error, `VITE_API_URL` is wrong or the API is down.
 
 ## Notes

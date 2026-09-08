@@ -16,21 +16,36 @@ const PORT = Number(process.env.PORT || 8787);
 const defaultOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
 const envOrigins = (process.env.CORS_ORIGINS || process.env.CLIENT_ORIGIN || "")
   .split(",")
-  .map((origin) => origin.trim())
+  .map((origin) => origin.trim().replace(/\/$/, ""))
   .filter(Boolean);
 const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins])];
+
+function isAllowedOrigin(origin: string | undefined): boolean {
+  if (!origin) return true;
+  const normalized = origin.replace(/\/$/, "");
+  if (allowedOrigins.includes(normalized)) return true;
+  try {
+    const { hostname } = new URL(normalized);
+    if (hostname === "localhost" || hostname === "127.0.0.1") return true;
+    if (hostname.endsWith(".vercel.app")) return true;
+  } catch {
+    return false;
+  }
+  // If CORS_ORIGINS was never set, do not block the deployed frontend.
+  return envOrigins.length === 0;
+}
 
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-        return;
-      }
-      callback(null, false);
+      callback(null, isAllowedOrigin(origin));
     },
+    methods: ["GET", "HEAD", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "X-Profile-Id"],
+    maxAge: 86400,
   }),
 );
+app.options("*", cors());
 app.use(express.json({ limit: "2mb" }));
 
 app.get("/", (_req, res) => {
