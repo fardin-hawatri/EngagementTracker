@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface": "#d4e4f9",
+          "surface-container-lowest": "#010f1e",
+          "tertiary-fixed-dim": "#4edea3",
+          "outline-variant": "#5a4045",
+          "on-tertiary-container": "#00311f",
+          "tertiary": "#4edea3",
+          "surface-tint": "#ffb1c0",
+          "surface-bright": "#2b3b4b",
+          "on-tertiary-fixed": "#002113",
+          "tertiary-fixed": "#6ffbbe",
+          "on-primary-fixed-variant": "#90003d",
+          "error": "#ffb4ab",
+          "on-surface-variant": "#e2bec3",
+          "on-tertiary": "#003824",
+          "on-secondary-fixed": "#07006c",
+          "surface-container-low": "#0c1d2c",
+          "primary": "#ffb1c0",
+          "secondary": "#c0c1ff",
+          "inverse-surface": "#d4e4f9",
+          "on-primary-fixed": "#3f0017",
+          "on-primary": "#660029",
+          "on-secondary": "#1000a9",
+          "background": "#041423",
+          "on-error": "#690005",
+          "inverse-on-surface": "#223241",
+          "on-primary-container": "#5a0023",
+          "surface": "#041423",
+          "primary-container": "#ff4c83",
+          "primary-fixed": "#ffd9df",
+          "secondary-fixed-dim": "#c0c1ff",
+          "outline": "#a9898e",
+          "surface-container": "#112130",
+          "on-background": "#d4e4f9",
+          "inverse-primary": "#bb0452",
+          "secondary-fixed": "#e1e0ff",
+          "on-tertiary-fixed-variant": "#005236",
+          "tertiary-container": "#00a572",
+          "surface-dim": "#041423",
+          "primary-fixed-dim": "#ffb1c0",
+          "on-secondary-container": "#b0b2ff",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#3131c0",
+          "error-container": "#93000a",
+          "on-secondary-fixed-variant": "#2f2ebe",
+          "surface-variant": "#273646",
+          "surface-container-high": "#1c2b3b",
+          "surface-container-highest": "#273646"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xxs": "0.125rem",
+          "space-xl": "2rem",
+          "grid-gutter-desktop": "1px",
+          "grid-margin-desktop": "1.5rem",
+          "grid-gutter-mobile": "1px",
+          "space-lg": "1.5rem",
+          "space-md": "0.75rem",
+          "space-base": "1rem",
+          "space-2xl": "3rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "grid-margin-mobile": "0.75rem"
+        },
+        "fontFamily": {
+          "headline-sm": [
+            "Geist"
+          ],
+          "code-tabular": [
+            "JetBrains Mono"
+          ],
+          "metric-lg": [
+            "Geist"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "metric-hero": [
+            "Geist"
+          ],
+          "body-sm": [
+            "Geist"
+          ],
+          "body-md": [
+            "Geist"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "headline-lg-mobile": [
+            "Geist"
+          ]
+        },
+        "fontSize": {
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "code-tabular": [
+            "0.75rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "metric-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "0.6875rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.08em",
+              "fontWeight": "500"
+            }
+          ],
+          "metric-hero": [
+            "3rem",
+            {
+              "lineHeight": "1.1",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.45",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg-mobile": [
+            "1.25rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-surface-variant z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center gap-space-sm border-b border-surface-variant bg-surface-container-lowest"><img alt="Editorial Intelligence Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VSNL5hXdoAQylrJH8fRzJfP7FGvXs1oR04KRV_7fuZmNaRuKI08zl7nUj8zJkh0JbEAhfXYWpE-UkyIJ6XQ1Y7ClbWcUSQrPG-e05eAyuNSFPGxtpoNDVDjmyS9JsLP_hTls_yq2RHvo7DmoPKNc05hJQpFa2fT4UBI9lO6Hl7-RbghHiAO1biaD5jFMPj1wotsaYkpwKH99n9eJHpeOIYW1GgZQdicEa_IrkMq_87mN4iK8n5Wcvc-dVG"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none uppercase">CONTENT INTEL</span><span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase leading-tight mt-space-xxs">INSTAGRAM REELS INTELLIGENCE</span></div></div><div class="px-space-base py-space-sm border-b border-surface-variant/60 bg-surface-container/40"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">TERMINAL MATRIX</span><span class="font-code-tabular text-code-tabular text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 bg-tertiary rounded-none"></span>ONLINE</span></div></div><nav class="flex flex-col py-space-xs" data-active-classes="bg-surface-container-high text-on-surface border-l-2 border-primary-container pl-[14px] font-semibold"><a aria-current="page" class="flex items-center gap-space-sm px-space-base py-space-sm uppercase transition-colors bg-surface-container-high text-on-surface border-l-2 border-primary-container pl-[14px] font-semibold" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span>Overview</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="content-topics" href="#"><span class="material-symbols-outlined text-[18px]">topic</span>Content Topics</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="all-reels" href="#"><span class="material-symbols-outlined text-[18px]">play_circle</span>All Reels</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="performance" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span>Performance</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="insights" href="#"><span class="material-symbols-outlined text-[18px]">insights</span>Insights</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span>Settings</a></nav></div><div class="p-space-base border-t border-surface-variant bg-surface-container-lowest"><div class="bg-surface-container p-space-sm border border-surface-variant/80 flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">alternate_email</span><span class="font-code-tabular text-code-tabular font-semibold text-on-surface">faceworkout.studio</span></div><button class="text-on-surface-variant hover:text-on-surface p-space-xxs hover:bg-surface-container-high transition-colors" title="Trigger Sync"><span class="material-symbols-outlined text-[16px]">sync</span></button></div><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full bg-tertiary opacity-75"></span><span class="relative inline-flex h-2 w-2 bg-tertiary"></span></span><span class="font-code-tabular text-code-tabular text-tertiary">Connected - Synced 12m ago</span></div><div class="mt-space-xxs pt-space-xxs border-t border-surface-variant/50 flex justify-between items-center"><span class="font-label-caps text-label-caps text-on-surface-variant">LATENCY 24MS</span><span class="font-label-caps text-label-caps text-primary">V2.4 INTEL</span></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-variant z-40 flex items-center justify-between px-space-base"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant"><span class="hover:text-on-surface uppercase">Workspace</span><span class="text-outline">/</span><span class="text-on-surface uppercase font-semibold">Reels Intelligence Engine</span></div><div class="h-4 w-px bg-surface-variant"></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline pointer-events-none">search</span><input class="bg-surface-container border border-surface-variant text-on-surface placeholder:text-outline text-code-tabular pl-8 pr-space-sm py-1 w-64 focus:outline-none focus:border-primary transition-colors" placeholder="Search topics, reels, hooks..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center border border-surface-variant bg-surface-container"><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">30D</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant bg-surface-container-highest text-on-surface font-semibold">90D</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">YTD</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">ALL</button><div class="flex items-center gap-1 px-2.5 py-1 font-code-tabular text-code-tabular text-on-surface"><span class="material-symbols-outlined text-[14px] text-outline">calendar_today</span>Last 90 Days (Oct 1 - Dec 31)</div></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-1 px-space-sm py-1 bg-surface-container border border-surface-variant text-on-surface font-label-caps text-label-caps uppercase hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[15px]">refresh</span>Refresh Data</button><button class="flex items-center gap-1 px-space-sm py-1 bg-primary text-on-primary font-label-caps text-label-caps uppercase font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors"><span class="material-symbols-outlined text-[15px]">download</span>Export CSV</button></div><div class="h-4 w-px bg-surface-variant"></div><div class="flex items-center gap-space-xs"><button class="w-8 h-8 flex items-center justify-center border border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 px-space-base pb-space-2xl bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- SECTION 1: HEADER & STRIP BENCHMARK BARRIER -->
+<div class="w-full bg-surface-container-lowest border-b border-surface-variant px-space-base py-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xxs">
+<span class="w-1.5 h-1.5 bg-primary-container inline-block"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">ANALYTICAL ENGINE · INDEX L3</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight uppercase">Instagram Content Performance</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Understand which content topics drive reach and engagement across 436 analyzed Reels.</p>
+</div>
+<!-- Compact Inline KPI Strip -->
+<div class="flex flex-wrap items-center bg-surface-container border border-surface-variant/80 divide-x divide-surface-variant">
+<div class="px-3 py-1.5 flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Corpus</span>
+<span class="font-code-tabular text-sm font-semibold text-on-surface">436 <span class="text-xs font-normal text-on-surface-variant">Reels</span></span>
+</div>
+<div class="px-3 py-1.5 flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Cumulative Reach</span>
+<span class="font-code-tabular text-sm font-semibold text-on-surface">1.54M <span class="text-xs font-normal text-on-surface-variant">Views</span></span>
+</div>
+<div class="px-3 py-1.5 flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Interactions</span>
+<span class="font-code-tabular text-sm font-semibold text-on-surface">13.5K <span class="text-[10px] font-normal text-on-surface-variant">L</span> / 716 <span class="text-[10px] font-normal text-on-surface-variant">C</span></span>
+</div>
+<div class="px-3 py-1.5 flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Mean Engagement</span>
+<span class="font-code-tabular text-sm font-semibold text-tertiary">4.82%</span>
+</div>
+<div class="px-3 py-1.5 flex flex-col bg-surface-container-high">
+<span class="font-label-caps text-[10px] text-primary uppercase">Benchmark / Post</span>
+<span class="font-code-tabular text-sm font-semibold text-primary">18.2K <span class="text-xs font-normal text-on-primary-fixed-variant">Views</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: PRIMARY LARGE VISUALIZATION MATRIX -->
+<div class="w-full bg-surface-container-low border-b border-surface-variant p-space-base">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between pb-space-sm border-b border-surface-variant/60 mb-space-sm gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">bar_chart_4_bars</span>
+<h2 class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface">Topic Performance Ranking &amp; Reach vs. Engagement</h2>
+</div>
+<p class="font-code-tabular text-body-sm text-on-surface-variant">Normalized across 8 core taxonomies. Solid bar indicates mean views; diamond pin represents Engagement Rate (%).</p>
+</div>
+<div class="flex items-center gap-space-md font-code-tabular text-code-tabular">
+<span class="inline-flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-3 h-2 bg-surface-container-highest border border-outline/40"></span> Sub-Benchmark
+        </span>
+<span class="inline-flex items-center gap-1.5 text-tertiary">
+<span class="w-3 h-2 bg-tertiary"></span> Surplus Alpha
+        </span>
+<span class="inline-flex items-center gap-1.5 text-primary">
+<span class="w-2 h-2 rotate-45 bg-primary"></span> Engagement %
+        </span>
+<span class="inline-flex items-center gap-1.5 text-on-surface border-l border-surface-variant pl-space-sm">
+<span class="w-0.5 h-3 bg-primary-container"></span> Account Mean: 18.2K
+        </span>
+</div>
+</div>
+<!-- The Dual-Layer Analytical Ranked Chart -->
+<div class="w-full flex flex-col gap-2 pt-2">
+<!-- Axis Legend Header -->
+<div class="grid grid-cols-12 gap-2 text-on-surface-variant font-label-caps text-label-caps border-b border-surface-variant/40 pb-1">
+<div class="col-span-3">TAXONOMY TOPIC (N)</div>
+<div class="col-span-7 relative flex justify-between pr-4">
+<span>0K</span>
+<span>10K</span>
+<span class="text-primary font-bold">18.2K (BENCHMARK)</span>
+<span>30K</span>
+<span>40K</span>
+<span>50K+</span>
+</div>
+<div class="col-span-2 text-right">METRIC / MULTIPLIER</div>
+</div>
+<!-- Row 1: Smile Lines -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm font-semibold text-on-surface">Smile Lines</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=64</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<!-- Central Benchmark Grid Marker at 36.4% of total 50K range (18.2 / 50 = 36.4%) -->
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<!-- Base to Benchmark -->
+<div class="h-full bg-surface-container-highest" style="width: 36.4%;"></div>
+<!-- Surplus over benchmark (51.2K reaches max 100%) -->
+<div class="h-full bg-tertiary flex items-center justify-end px-2" style="width: 63.6%;">
+<span class="font-code-tabular text-[10px] font-bold text-on-tertiary">51.2K VIEWS</span>
+</div>
+<!-- Engagement Diamond: 5.4% positioned at 54% -->
+<div class="absolute top-1/2 -translate-y-1/2 left-[54%] w-3 h-3 bg-primary rotate-45 border border-surface-container-lowest z-30 shadow-sm" title="Engagement: 5.4%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-tertiary text-code-tabular font-bold">+181%</span>
+<span class="px-1.5 py-0.5 bg-primary/20 text-primary text-[10px] font-semibold">5.4% ER</span>
+</div>
+</div>
+<!-- Row 2: Slimmer Cheeks -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm font-semibold text-on-surface">Slimmer Cheeks</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=52</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<div class="h-full bg-surface-container-highest" style="width: 36.4%;"></div>
+<div class="h-full bg-tertiary flex items-center justify-end px-2" style="width: 40.8%;">
+<span class="font-code-tabular text-[10px] font-bold text-on-tertiary">38.6K VIEWS</span>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[49%] w-3 h-3 bg-primary rotate-45 border border-surface-container-lowest z-30" title="Engagement: 4.9%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-tertiary text-code-tabular font-bold">+112%</span>
+<span class="px-1.5 py-0.5 bg-primary/20 text-primary text-[10px] font-semibold">4.9% ER</span>
+</div>
+</div>
+<!-- Row 3: Lymphatic Drainage -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm font-semibold text-on-surface">Lymphatic Drainage</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=3</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<div class="h-full bg-surface-container-highest" style="width: 36.4%;"></div>
+<div class="h-full bg-tertiary flex items-center justify-end px-2" style="width: 27.6%;">
+<span class="font-code-tabular text-[10px] font-bold text-on-tertiary">32.0K VIEWS</span>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[46%] w-3 h-3 bg-primary rotate-45 border border-surface-container-lowest z-30" title="Engagement: 4.6%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-tertiary text-code-tabular font-bold">+75.8%</span>
+<span class="px-1.5 py-0.5 bg-primary/20 text-primary text-[10px] font-semibold">4.6% ER</span>
+</div>
+</div>
+<!-- Row 4: Jawline Definition -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm font-semibold text-on-surface">Jawline Definition</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=78</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<div class="h-full bg-surface-container-highest" style="width: 36.4%;"></div>
+<div class="h-full bg-tertiary flex items-center justify-end px-2" style="width: 16.4%;">
+<span class="font-code-tabular text-[10px] font-bold text-on-tertiary">26.4K</span>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[51%] w-3 h-3 bg-primary rotate-45 border border-surface-container-lowest z-30" title="Engagement: 5.1%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-tertiary text-code-tabular font-bold">+45.0%</span>
+<span class="px-1.5 py-0.5 bg-primary/20 text-primary text-[10px] font-semibold">5.1% ER</span>
+</div>
+</div>
+<!-- Row 5: Double Chin Tightening -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm font-semibold text-on-surface">Double Chin Tightening</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=44</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<div class="h-full bg-surface-container-highest" style="width: 36.4%;"></div>
+<div class="h-full bg-tertiary flex items-center justify-end px-2" style="width: 5.2%;">
+<span class="font-code-tabular text-[10px] font-bold text-on-tertiary">20.8K</span>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[44%] w-3 h-3 bg-primary rotate-45 border border-surface-container-lowest z-30" title="Engagement: 4.4%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-tertiary text-code-tabular font-bold">+14.2%</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-semibold">4.4% ER</span>
+</div>
+</div>
+<!-- Row 6: Dark Circles Under Eye -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm font-semibold text-on-surface">Dark Circles Under Eye</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=38</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<div class="h-full bg-surface-container-highest" style="width: 36.4%;"></div>
+<div class="h-full bg-tertiary flex items-center justify-end px-2" style="width: 2.6%;">
+<span class="font-code-tabular text-[10px] font-bold text-on-tertiary">19.5K</span>
+</div>
+<!-- Low engagement warning pin: 2.1% positioned at 21% -->
+<div class="absolute top-1/2 -translate-y-1/2 left-[21%] w-3 h-3 bg-error rotate-45 border border-surface-container-lowest z-30" title="Engagement: 2.1% (Lagging)"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-tertiary text-code-tabular font-bold">+7.1%</span>
+<span class="px-1.5 py-0.5 bg-error/20 text-error text-[10px] font-semibold">2.1% ER</span>
+</div>
+</div>
+<!-- Row 7: Neck Tension Relief (Lagging) -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm text-on-surface">Neck Tension Relief</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=35</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<!-- Undershoot Bar: 14.9K is 29.8% of 50K scale -->
+<div class="h-full bg-surface-container-highest border-r-2 border-outline-variant flex items-center justify-end px-2" style="width: 29.8%;">
+<span class="font-code-tabular text-[10px] text-on-surface-variant">14.9K</span>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[39%] w-3 h-3 bg-on-surface-variant rotate-45 border border-surface-container-lowest z-30" title="Engagement: 3.9%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-error text-code-tabular font-bold">-18.1%</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-semibold">3.9% ER</span>
+</div>
+</div>
+<!-- Row 8: Forehead Lines (Severe Lag) -->
+<div class="grid grid-cols-12 gap-2 items-center hover:bg-surface-container transition-colors py-1 px-1">
+<div class="col-span-3 flex items-center justify-between pr-2">
+<span class="font-code-tabular text-body-sm text-on-surface">Forehead Lines</span>
+<span class="font-code-tabular text-code-tabular text-outline">n=24</span>
+</div>
+<div class="col-span-7 relative h-7 bg-surface-container-lowest border border-surface-variant flex items-center">
+<div class="absolute left-[36.4%] top-0 bottom-0 w-px bg-primary-container/80 z-20"></div>
+<!-- 11.1K is 22.2% of 50K scale -->
+<div class="h-full bg-outline-variant/60 border-r-2 border-error flex items-center justify-end px-2" style="width: 22.2%;">
+<span class="font-code-tabular text-[10px] text-error font-bold">11.1K</span>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[31%] w-3 h-3 bg-outline-variant rotate-45 border border-surface-container-lowest z-30" title="Engagement: 3.1%"></div>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2 text-right font-code-tabular">
+<span class="text-error text-code-tabular font-bold">-39.0%</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-error text-[10px] font-semibold">3.1% ER</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: ANALYTICAL QUADRANT GRID OF SECONDARY VISUALIZATIONS -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 border-b border-surface-variant bg-surface-container">
+<!-- Chart A: Topic Benchmark Divergence (Cols 1-3) -->
+<div class="lg:col-span-3 p-space-base border-b lg:border-b-0 lg:border-r border-surface-variant bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">BENCHMARK DEVIATION</span>
+<span class="font-code-tabular text-[10px] text-tertiary font-bold">+181% MAX</span>
+</div>
+<h3 class="font-headline-sm text-sm uppercase text-on-surface mb-space-sm">Topic Performance vs Account</h3>
+<p class="font-body-sm text-xs text-on-surface-variant mb-space-base">Diverging delta percentage relative to 18.2K account baseline.</p>
+<!-- Diverging Bar Visual -->
+<div class="space-y-2 font-code-tabular text-xs">
+<div>
+<div class="flex justify-between text-[11px] mb-0.5">
+<span class="text-on-surface">Smile Lines</span>
+<span class="text-tertiary font-bold">+181.3%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest flex">
+<div class="w-1/2 flex justify-end"></div>
+<div class="w-1/2 bg-tertiary" style="width: 48%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-0.5">
+<span class="text-on-surface">Slimmer Cheeks</span>
+<span class="text-tertiary font-bold">+112.0%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest flex">
+<div class="w-1/2"></div>
+<div class="bg-tertiary" style="width: 32%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-0.5">
+<span class="text-on-surface">Jawline Def.</span>
+<span class="text-tertiary font-bold">+45.0%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest flex">
+<div class="w-1/2"></div>
+<div class="bg-tertiary" style="width: 16%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-0.5">
+<span class="text-on-surface-variant">Neck Tension</span>
+<span class="text-error font-bold">-18.1%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest flex justify-end">
+<div class="bg-error" style="width: 12%;"></div>
+<div class="w-1/2"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-0.5">
+<span class="text-on-surface-variant">Forehead Lines</span>
+<span class="text-error font-bold">-39.0%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest flex justify-end">
+<div class="bg-error" style="width: 26%;"></div>
+<div class="w-1/2"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-base pt-space-xs border-t border-surface-variant/40 flex justify-between items-center text-[10px] font-code-tabular text-on-surface-variant">
+<span>0% BASELINE = 18.2K</span>
+<span class="text-tertiary">3 / 5 OVERPERFORMING</span>
+</div>
+</div>
+<!-- Chart B: Topic Consistency & Variance Matrix (Cols 4-6) -->
+<div class="lg:col-span-3 p-space-base border-b lg:border-b-0 lg:border-r border-surface-variant bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">VARIANCE INSPECTION</span>
+<span class="font-code-tabular text-[10px] text-primary font-bold">WHISKER-STRIP</span>
+</div>
+<h3 class="font-headline-sm text-sm uppercase text-on-surface mb-space-sm">Consistency &amp; Outliers</h3>
+<p class="font-body-sm text-xs text-on-surface-variant mb-space-base">Range from Min to Max outlier. Solid marker depicts topic median.</p>
+<!-- Box Plot Simulation -->
+<div class="space-y-3 font-code-tabular text-xs">
+<!-- Item 1 -->
+<div>
+<div class="flex justify-between text-[11px] text-on-surface mb-1">
+<span>Smile Lines</span>
+<span class="text-on-surface-variant text-[10px]">22K — [48K] — 125K</span>
+</div>
+<div class="relative h-4 bg-surface-container-lowest flex items-center px-1">
+<!-- Range Line -->
+<div class="absolute left-[18%] right-[5%] h-0.5 bg-outline/60"></div>
+<!-- Min Whisker -->
+<div class="absolute left-[18%] h-2.5 w-0.5 bg-outline"></div>
+<!-- Max Whisker -->
+<div class="absolute right-[5%] h-2.5 w-0.5 bg-tertiary"></div>
+<!-- Median Block -->
+<div class="absolute left-[48%] h-3.5 w-2 bg-tertiary border border-surface-container-lowest"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div>
+<div class="flex justify-between text-[11px] text-on-surface mb-1">
+<span>Slimmer Cheeks</span>
+<span class="text-on-surface-variant text-[10px]">14K — [35K] — 98K</span>
+</div>
+<div class="relative h-4 bg-surface-container-lowest flex items-center px-1">
+<div class="absolute left-[12%] right-[22%] h-0.5 bg-outline/60"></div>
+<div class="absolute left-[12%] h-2.5 w-0.5 bg-outline"></div>
+<div class="absolute right-[22%] h-2.5 w-0.5 bg-tertiary"></div>
+<div class="absolute left-[36%] h-3.5 w-2 bg-tertiary border border-surface-container-lowest"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div>
+<div class="flex justify-between text-[11px] text-on-surface mb-1">
+<span>Jawline Def.</span>
+<span class="text-on-surface-variant text-[10px]">12K — [24K] — 84K</span>
+</div>
+<div class="relative h-4 bg-surface-container-lowest flex items-center px-1">
+<div class="absolute left-[10%] right-[32%] h-0.5 bg-outline/60"></div>
+<div class="absolute left-[10%] h-2.5 w-0.5 bg-outline"></div>
+<div class="absolute right-[32%] h-2.5 w-0.5 bg-tertiary"></div>
+<div class="absolute left-[26%] h-3.5 w-2 bg-tertiary border border-surface-container-lowest"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div>
+<div class="flex justify-between text-[11px] text-on-surface mb-1">
+<span>Forehead Lines</span>
+<span class="text-error text-[10px]">4K — [9K] — 19K (No Outliers)</span>
+</div>
+<div class="relative h-4 bg-surface-container-lowest flex items-center px-1">
+<div class="absolute left-[4%] right-[72%] h-0.5 bg-outline-variant"></div>
+<div class="absolute left-[4%] h-2.5 w-0.5 bg-error"></div>
+<div class="absolute right-[72%] h-2.5 w-0.5 bg-outline-variant"></div>
+<div class="absolute left-[12%] h-3.5 w-2 bg-error border border-surface-container-lowest"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-base pt-space-xs border-t border-surface-variant/40 flex justify-between items-center text-[10px] font-code-tabular text-on-surface-variant">
+<span>MARKER = MEDIAN</span>
+<span class="text-primary font-bold">HIGH PREDICTABILITY</span>
+</div>
+</div>
+<!-- Chart C: 90-Day Trajectory (Cols 7-9) -->
+<div class="lg:col-span-3 p-space-base border-b lg:border-b-0 lg:border-r border-surface-variant bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">TEMPORAL MOMENTUM</span>
+<span class="font-code-tabular text-[10px] text-tertiary">90D WINDOW</span>
+</div>
+<h3 class="font-headline-sm text-sm uppercase text-on-surface mb-space-sm">Views Trajectory (Top 3)</h3>
+<p class="font-body-sm text-xs text-on-surface-variant mb-space-sm">Rolling aggregate views per week by topic.</p>
+<!-- Precision SVG Sparkline Chart -->
+<div class="relative w-full h-24 bg-surface-container-lowest border border-surface-variant/70 p-1 flex items-end">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 200 80">
+<!-- Grid Lines -->
+<line stroke="#273646" stroke-dasharray="2 2" stroke-width="0.75" x1="0" x2="200" y1="20" y2="20"></line>
+<line stroke="#273646" stroke-dasharray="2 2" stroke-width="0.75" x1="0" x2="200" y1="50" y2="50"></line>
+<!-- Smile Lines: Magenta (Primary) Rising -->
+<polyline points="0,55 30,48 60,35 90,40 120,22 150,18 180,10 200,8" stroke="#ff4c83" stroke-linecap="square" stroke-width="2"></polyline>
+<!-- Slimmer Cheeks: Emerald (Tertiary) Steady Up -->
+<polyline points="0,65 30,60 60,50 90,45 120,38 150,30 180,28 200,22" stroke="#4edea3" stroke-linecap="square" stroke-width="1.75"></polyline>
+<!-- Jawline: Lavender/Secondary Mid-range Flat -->
+<polyline points="0,62 30,66 60,58 90,52 120,55 150,48 180,45 200,42" stroke="#c0c1ff" stroke-linecap="square" stroke-width="1.5"></polyline>
+</svg>
+</div>
+<div class="flex items-center justify-between pt-2 text-[10px] font-code-tabular text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-2 h-0.5 bg-primary-container inline-block"></span> Smile Lines</span>
+<span class="flex items-center gap-1"><span class="w-2 h-0.5 bg-tertiary inline-block"></span> Cheeks</span>
+<span class="flex items-center gap-1"><span class="w-2 h-0.5 bg-secondary inline-block"></span> Jawline</span>
+</div>
+</div>
+<div class="mt-space-base pt-space-xs border-t border-surface-variant/40 flex justify-between items-center text-[10px] font-code-tabular text-on-surface-variant">
+<span>OCT 1</span>
+<span class="text-on-surface">DEC 31 (+312% VELOCITY)</span>
+</div>
+</div>
+<!-- Chart D: Content Category Mix (Cols 10-12) -->
+<div class="lg:col-span-3 p-space-base bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">ANATOMICAL DISTRIBUTION</span>
+<span class="font-code-tabular text-[10px] text-on-surface">436 POSTS</span>
+</div>
+<h3 class="font-headline-sm text-sm uppercase text-on-surface mb-space-sm">Content Mix &amp; Category</h3>
+<p class="font-body-sm text-xs text-on-surface-variant mb-space-sm">High-leverage anatomical taxonomy grouping.</p>
+<!-- Segmented Stacked Ratio Strip -->
+<div class="flex flex-col gap-2">
+<div class="w-full h-6 bg-surface-container-lowest border border-surface-variant flex overflow-hidden">
+<div class="bg-primary-container h-full flex items-center justify-center font-code-tabular text-[10px] text-on-primary-container font-bold" style="width: 62%;">62% FACE</div>
+<div class="bg-secondary-container h-full flex items-center justify-center font-code-tabular text-[10px] text-on-secondary-container font-bold" style="width: 24%;">24% NECK</div>
+<div class="bg-surface-container-highest h-full flex items-center justify-center font-code-tabular text-[10px] text-on-surface font-bold" style="width: 14%;">14% BODY</div>
+</div>
+<!-- Breakdown Legend -->
+<div class="space-y-1.5 pt-1 text-xs font-code-tabular">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-2 h-2 bg-primary-container"></span> Facial Dynamics</span>
+<span class="text-on-surface-variant">270 Reels (1.12M views)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-2 h-2 bg-secondary-container"></span> Neck &amp; Posture</span>
+<span class="text-on-surface-variant">105 Reels (288K views)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-2 h-2 bg-surface-container-highest"></span> Body Drainage</span>
+<span class="text-on-surface-variant">61 Reels (132K views)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-base pt-space-xs border-t border-surface-variant/40 flex justify-between items-center text-[10px] font-code-tabular text-on-surface-variant">
+<span>EFFICIENCY: FACE 4.1K/POST</span>
+<span class="text-tertiary">OPTIMAL RATIO</span>
+</div>
+</div>
+</div>
+<!-- SECTION 4: EDITORIAL INSIGHT COMPARISON: WORKING VS ATTENTION -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 border-b border-surface-variant">
+<!-- Left: What is Working -->
+<div class="p-space-base bg-surface-container-low border-b md:border-b-0 md:border-r border-surface-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm pb-space-xs border-b border-surface-variant/60">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-tertiary"></span>
+<span class="font-label-caps text-label-caps uppercase text-tertiary">PRIMARY LEVERAGE DRIVER</span>
+</div>
+<span class="font-code-tabular text-xs text-on-surface-variant">DIAGNOSTIC POSITIVE</span>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-md">
+<span class="font-label-caps text-xs text-on-surface-variant uppercase">CATEGORY LEADER</span>
+<h4 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">SMILE LINES</h4>
+<p class="font-body-md text-on-surface-variant">
+            Unchallenged anchor of organic reach. Demonstrates extreme algorithmic virality retention with a 92% consistency coefficient across all posting cadences. Audience conversion into saves and comments tracks 3.2x higher than global studio benchmarks.
+          </p>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-surface-container p-space-sm border border-surface-variant mb-space-base">
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">AVG REACH</span>
+<span class="font-code-tabular text-sm font-bold text-tertiary">51.2K</span>
+</div>
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">MULTIPLIER</span>
+<span class="font-code-tabular text-sm font-bold text-on-surface">2.8x ACCOUNT</span>
+</div>
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">CONSISTENCY</span>
+<span class="font-code-tabular text-sm font-bold text-tertiary">92% HIT-RATE</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm border-t border-surface-variant/40">
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">ACTION: ALLOCATE 45% CALENDAR</span>
+<button class="px-space-base py-1.5 bg-tertiary-container hover:bg-tertiary text-on-tertiary-container hover:text-on-tertiary font-label-caps text-label-caps uppercase font-bold transition-colors">
+          [View Topic Details]
+        </button>
+</div>
+</div>
+<!-- Right: What Needs Attention -->
+<div class="p-space-base bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm pb-space-xs border-b border-surface-variant/60">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-error"></span>
+<span class="font-label-caps text-label-caps uppercase text-error">DEFICIT WARNING</span>
+</div>
+<span class="font-code-tabular text-xs text-on-surface-variant">RESOURCE DRAIN</span>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-md">
+<span class="font-label-caps text-xs text-on-surface-variant uppercase">UNDERPERFORMING VECTOR</span>
+<h4 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">FOREHEAD LINES</h4>
+<p class="font-body-md text-on-surface-variant">
+            Persistent drag on algorithmic portfolio delivery. 19 of the last 24 published Reels failed to clear the baseline discovery floor (18.2K). High retention dropoff noted in the initial 3 seconds; viewer perception skews toward clinical skepticism rather than routine exercise.
+          </p>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-surface-container p-space-sm border border-surface-variant mb-space-base">
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">AVG REACH</span>
+<span class="font-code-tabular text-sm font-bold text-error">11.1K</span>
+</div>
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">DEFICIT</span>
+<span class="font-code-tabular text-sm font-bold text-error">0.61x ACCOUNT</span>
+</div>
+<div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">FAILURE INDEX</span>
+<span class="font-code-tabular text-sm font-bold text-error">79% SUB-PAR</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm border-t border-surface-variant/40">
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">RECOMMENDATION: RETIRE OR PIVOT FORMAT</span>
+<button class="px-space-base py-1.5 bg-surface-container-high border border-outline-variant hover:border-error text-error font-label-caps text-label-caps uppercase font-bold transition-colors">
+          [Analyze Topic]
+        </button>
+</div>
+</div>
+</div>
+<!-- SECTION 5: BREAKOUT CONTENT TABLE -->
+<div class="w-full bg-surface-container-lowest border-b border-surface-variant p-space-base">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-sm mb-space-sm border-b border-surface-variant/60 gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">rocket_launch</span>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface">Top Breakout Reels</h2>
+</div>
+<p class="font-body-sm text-on-surface-variant">Reels that generated exceptional baseline multiplier ratios compared to topic median.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-code-tabular text-xs text-on-surface-variant">SHOWING 5 ANOMALIES</span>
+<span class="px-2 py-0.5 bg-primary/20 text-primary font-label-caps text-label-caps uppercase font-bold">ALPHA &gt; 3.0X</span>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse font-code-tabular text-body-sm">
+<thead>
+<tr class="bg-surface-container border-b border-surface-variant text-on-surface-variant font-label-caps text-label-caps uppercase">
+<th class="py-2.5 px-3">REEL TITLE &amp; HOOK TRANSCRIPT</th>
+<th class="py-2.5 px-3">TOPIC</th>
+<th class="py-2.5 px-3 text-right">VIEWS</th>
+<th class="py-2.5 px-3 text-right">BENCHMARK</th>
+<th class="py-2.5 px-3 text-right">MULTIPLIER</th>
+<th class="py-2.5 px-3 text-right">INTERACTIONS</th>
+<th class="py-2.5 px-3 text-center">CLASSIFICATION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/40">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-10 bg-surface-container-high border border-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">play_arrow</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs text-on-surface font-semibold hover:text-primary cursor-pointer">Smoother Smile Lines in Minutes</span>
+<span class="text-[11px] text-on-surface-variant truncate max-w-sm">"Stop applying thick concealer over folds; release the nasolabial tendon first..."</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-1.5 py-0.5 bg-surface-container-high border border-surface-variant text-[10px] text-on-surface uppercase">Smile Lines</span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-on-surface">125.4K</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">18.2K</td>
+<td class="py-3 px-3 text-right">
+<span class="text-tertiary font-bold bg-tertiary-container/30 px-1.5 py-0.5 border border-tertiary/40">6.9x AVG</span>
+</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">
+<span class="text-on-surface font-semibold">1,840</span> L · <span class="text-on-surface font-semibold">192</span> C
+            </td>
+<td class="py-3 px-3 text-center">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container font-label-caps text-[10px] uppercase font-bold tracking-wider">Breakout Alpha</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-10 bg-surface-container-high border border-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">play_arrow</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs text-on-surface font-semibold hover:text-primary cursor-pointer">The 30-Sec Jawline Sculpt</span>
+<span class="text-[11px] text-on-surface-variant truncate max-w-sm">"Tuck your thumbs under the mandible angle and glide toward the earlobe..."</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-1.5 py-0.5 bg-surface-container-high border border-surface-variant text-[10px] text-on-surface uppercase">Jawline Def.</span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-on-surface">98.2K</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">24.5K</td>
+<td class="py-3 px-3 text-right">
+<span class="text-tertiary font-bold bg-tertiary-container/30 px-1.5 py-0.5 border border-tertiary/40">4.0x AVG</span>
+</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">
+<span class="text-on-surface font-semibold">1,210</span> L · <span class="text-on-surface font-semibold">88</span> C
+            </td>
+<td class="py-3 px-3 text-center">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container font-label-caps text-[10px] uppercase font-bold tracking-wider">Breakout</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-10 bg-surface-container-high border border-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">play_arrow</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs text-on-surface font-semibold hover:text-primary cursor-pointer">Instant Cheek Lift Massage</span>
+<span class="text-[11px] text-on-surface-variant truncate max-w-sm">"Use knuckle pressure along the zygomatic arch before sleeping..."</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-1.5 py-0.5 bg-surface-container-high border border-surface-variant text-[10px] text-on-surface uppercase">Slimmer Cheeks</span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-on-surface">84.1K</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">24.5K</td>
+<td class="py-3 px-3 text-right">
+<span class="text-tertiary font-bold bg-tertiary-container/30 px-1.5 py-0.5 border border-tertiary/40">3.4x AVG</span>
+</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">
+<span class="text-on-surface font-semibold">960</span> L · <span class="text-on-surface font-semibold">64</span> C
+            </td>
+<td class="py-3 px-3 text-center">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container font-label-caps text-[10px] uppercase font-bold tracking-wider">Breakout</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-10 bg-surface-container-high border border-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">play_arrow</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs text-on-surface font-semibold hover:text-primary cursor-pointer">Puffy Morning Eye Reset</span>
+<span class="text-[11px] text-on-surface-variant truncate max-w-sm">"Drain fluid down the inner orbital rim to the clavicle node..."</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-1.5 py-0.5 bg-surface-container-high border border-surface-variant text-[10px] text-on-surface uppercase">Dark Circles</span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-on-surface">62.8K</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">18.2K</td>
+<td class="py-3 px-3 text-right">
+<span class="text-tertiary font-bold bg-tertiary-container/30 px-1.5 py-0.5 border border-tertiary/40">3.4x AVG</span>
+</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">
+<span class="text-on-surface font-semibold">410</span> L · <span class="text-error font-semibold">18</span> C
+            </td>
+<td class="py-3 px-3 text-center">
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] uppercase font-bold tracking-wider">Reach Spike</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-10 bg-surface-container-high border border-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">play_arrow</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs text-on-surface font-semibold hover:text-primary cursor-pointer">Tension Release at Base of Skull</span>
+<span class="text-[11px] text-on-surface-variant truncate max-w-sm">"Suboccipital pressure release triggers immediate mid-face relaxation..."</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-1.5 py-0.5 bg-surface-container-high border border-surface-variant text-[10px] text-on-surface uppercase">Neck Tension</span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-on-surface">47.5K</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">14.9K</td>
+<td class="py-3 px-3 text-right">
+<span class="text-tertiary font-bold bg-tertiary-container/30 px-1.5 py-0.5 border border-tertiary/40">3.1x AVG</span>
+</td>
+<td class="py-3 px-3 text-right text-on-surface-variant">
+<span class="text-on-surface font-semibold">580</span> L · <span class="text-on-surface font-semibold">42</span> C
+            </td>
+<td class="py-3 px-3 text-center">
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] uppercase font-bold tracking-wider">Category Peak</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 6: CONTENT OPPORTUNITIES DECISION GRID (4 QUADRANTS) -->
+<div class="w-full bg-surface-container-low p-space-base">
+<div class="flex items-center justify-between pb-space-sm mb-space-base border-b border-surface-variant/60">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">space_dashboard</span>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface">Content Opportunities Decision Matrix</h2>
+</div>
+<p class="font-body-sm text-on-surface-variant">Strategic portfolio allocation directives based on Reach Velocity and Engagement Elasticity.</p>
+</div>
+<div class="font-code-tabular text-xs text-on-surface-variant">
+        ACTIVE CADENCE: 14 REELS / WK
+      </div>
+</div>
+<!-- 4 Interlocking Analytical Panes -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-base">
+<!-- Quadrant 1: Double Down -->
+<div class="bg-surface-container border-2 border-tertiary p-space-base flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs pb-space-xxs border-b border-surface-variant">
+<span class="font-label-caps text-label-caps uppercase text-tertiary font-bold tracking-wider">QUADRANT 01</span>
+<span class="w-2 h-2 bg-tertiary"></span>
+</div>
+<span class="font-label-caps text-[10px] text-tertiary uppercase block font-semibold mb-1">HIGH REACH · HIGH ENGAGEMENT</span>
+<h3 class="font-headline-sm text-base uppercase text-on-surface mb-space-xs">DOUBLE DOWN</h3>
+<p class="font-headline-sm text-sm text-primary mb-space-sm">Smile Lines</p>
+<p class="font-body-sm text-on-surface-variant mb-space-base">
+            Sustained audience retention with unmatched viral multipliers. Increase production allocation immediately.
+          </p>
+<div class="bg-surface-container-lowest p-space-xs border border-surface-variant font-code-tabular text-xs space-y-1 mb-space-md">
+<div class="flex justify-between text-on-surface"><span>Scheduled:</span> <span>4 Reels</span></div>
+<div class="flex justify-between text-tertiary font-bold"><span>Recommended:</span> <span>+3 Weekly</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Target Reach:</span> <span>250K+</span></div>
+</div>
+</div>
+<button class="w-full py-2 bg-tertiary hover:bg-tertiary-container text-on-tertiary hover:text-on-tertiary-container font-label-caps text-label-caps uppercase font-bold transition-colors">
+          Expand Cadence
+        </button>
+</div>
+<!-- Quadrant 2: Improve -->
+<div class="bg-surface-container border border-surface-variant p-space-base flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs pb-space-xxs border-b border-surface-variant">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold tracking-wider">QUADRANT 02</span>
+<span class="w-2 h-2 bg-secondary"></span>
+</div>
+<span class="font-label-caps text-[10px] text-secondary uppercase block font-semibold mb-1">HIGH REACH · LOW ENGAGEMENT</span>
+<h3 class="font-headline-sm text-base uppercase text-on-surface mb-space-xs">OPTIMIZE HOOKS</h3>
+<p class="font-headline-sm text-sm text-secondary mb-space-sm">Dark Circles</p>
+<p class="font-body-sm text-on-surface-variant mb-space-base">
+            Viral discovery reaches algorithmic threshold, but audience fails to interact (2.1% ER). Redesign call-to-action scripts.
+          </p>
+<div class="bg-surface-container-lowest p-space-xs border border-surface-variant font-code-tabular text-xs space-y-1 mb-space-md">
+<div class="flex justify-between text-on-surface"><span>Current ER:</span> <span class="text-error">2.1% (Low)</span></div>
+<div class="flex justify-between text-secondary font-bold"><span>Target ER:</span> <span>4.5%</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Action:</span> <span>A/B CTA Testing</span></div>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-high border border-surface-variant hover:border-secondary text-on-surface font-label-caps text-label-caps uppercase font-bold transition-colors">
+          Audit Hooks
+        </button>
+</div>
+<!-- Quadrant 3: Test -->
+<div class="bg-surface-container border border-surface-variant p-space-base flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs pb-space-xxs border-b border-surface-variant">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold tracking-wider">QUADRANT 03</span>
+<span class="w-2 h-2 bg-primary"></span>
+</div>
+<span class="font-label-caps text-[10px] text-primary uppercase block font-semibold mb-1">LOW VOLUME · HIGH VELOCITY</span>
+<h3 class="font-headline-sm text-base uppercase text-on-surface mb-space-xs">EXPLORE &amp; SCALE</h3>
+<p class="font-headline-sm text-sm text-primary mb-space-sm">Lymphatic Drainage</p>
+<p class="font-body-sm text-on-surface-variant mb-space-base">
+            Only 3 Reels published to date, yet generating an outstanding 32K mean reach. High-confidence test candidate.
+          </p>
+<div class="bg-surface-container-lowest p-space-xs border border-surface-variant font-code-tabular text-xs space-y-1 mb-space-md">
+<div class="flex justify-between text-on-surface"><span>Sample Size:</span> <span>n=3 Posts</span></div>
+<div class="flex justify-between text-primary font-bold"><span>Batch Test:</span> <span>5 In Production</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Signal Score:</span> <span>9.4 / 10</span></div>
+</div>
+</div>
+<button class="w-full py-2 bg-primary-container hover:bg-primary text-on-primary font-label-caps text-label-caps uppercase font-bold transition-colors">
+          Commission Batch
+        </button>
+</div>
+<!-- Quadrant 4: Review / Pivot -->
+<div class="bg-surface-container border border-error/50 p-space-base flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs pb-space-xxs border-b border-surface-variant">
+<span class="font-label-caps text-label-caps uppercase text-error font-bold tracking-wider">QUADRANT 04</span>
+<span class="w-2 h-2 bg-error"></span>
+</div>
+<span class="font-label-caps text-[10px] text-error uppercase block font-semibold mb-1">LOW REACH · HIGH DEVIATION</span>
+<h3 class="font-headline-sm text-base uppercase text-on-surface mb-space-xs">REVIEW / PIVOT</h3>
+<p class="font-headline-sm text-sm text-error mb-space-sm">Forehead Lines</p>
+<p class="font-body-sm text-on-surface-variant mb-space-base">
+            Persistent algorithmic fatigue across 24 Reels. Diminishing returns confirm audience resistance to current visual framing.
+          </p>
+<div class="bg-surface-container-lowest p-space-xs border border-surface-variant font-code-tabular text-xs space-y-1 mb-space-md">
+<div class="flex justify-between text-on-surface"><span>Deficit Delta:</span> <span class="text-error">-39.0%</span></div>
+<div class="flex justify-between text-error font-bold"><span>Deprecation:</span> <span>Halt Standard Cut</span></div>
+<div class="flex justify-between text-on-surface-variant"><span>Alternative:</span> <span>Acupressure angle</span></div>
+</div>
+</div>
+<button class="w-full py-2 bg-error-container hover:bg-error text-on-error hover:text-white font-label-caps text-label-caps uppercase font-bold transition-colors">
+          Pivot Strategy
+        </button>
+</div>
+</div>
+</div>
+<!-- Terminal Status Strip Footer -->
+<div class="w-full bg-surface-container-lowest border-t border-surface-variant px-space-base py-space-xs flex flex-col sm:flex-row items-center justify-between font-code-tabular text-code-tabular text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-tertiary"></span> LIVE DATA FEED</span>
+<span class="text-outline">/</span>
+<span>INDEX FREQUENCY: 15 MIN</span>
+<span class="text-outline">/</span>
+<span>TOTAL COMPUTED REELS: 436</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="text-primary font-semibold">SIG: 99.4% RELIABILITY</span>
+<span>SYSTEM COORD: [REELS_INTEL_V2.4]</span>
+</div>
+</div>
+</div></main></div></body></html>

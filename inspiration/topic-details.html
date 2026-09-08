@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface": "#d4e4f9",
+          "surface-container-lowest": "#010f1e",
+          "tertiary-fixed-dim": "#4edea3",
+          "outline-variant": "#5a4045",
+          "on-tertiary-container": "#00311f",
+          "tertiary": "#4edea3",
+          "surface-tint": "#ffb1c0",
+          "surface-bright": "#2b3b4b",
+          "on-tertiary-fixed": "#002113",
+          "tertiary-fixed": "#6ffbbe",
+          "on-primary-fixed-variant": "#90003d",
+          "error": "#ffb4ab",
+          "on-surface-variant": "#e2bec3",
+          "on-tertiary": "#003824",
+          "on-secondary-fixed": "#07006c",
+          "surface-container-low": "#0c1d2c",
+          "primary": "#ffb1c0",
+          "secondary": "#c0c1ff",
+          "inverse-surface": "#d4e4f9",
+          "on-primary-fixed": "#3f0017",
+          "on-primary": "#660029",
+          "on-secondary": "#1000a9",
+          "background": "#041423",
+          "on-error": "#690005",
+          "inverse-on-surface": "#223241",
+          "on-primary-container": "#5a0023",
+          "surface": "#041423",
+          "primary-container": "#ff4c83",
+          "primary-fixed": "#ffd9df",
+          "secondary-fixed-dim": "#c0c1ff",
+          "outline": "#a9898e",
+          "surface-container": "#112130",
+          "on-background": "#d4e4f9",
+          "inverse-primary": "#bb0452",
+          "secondary-fixed": "#e1e0ff",
+          "on-tertiary-fixed-variant": "#005236",
+          "tertiary-container": "#00a572",
+          "surface-dim": "#041423",
+          "primary-fixed-dim": "#ffb1c0",
+          "on-secondary-container": "#b0b2ff",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#3131c0",
+          "error-container": "#93000a",
+          "on-secondary-fixed-variant": "#2f2ebe",
+          "surface-variant": "#273646",
+          "surface-container-high": "#1c2b3b",
+          "surface-container-highest": "#273646"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xxs": "0.125rem",
+          "space-xl": "2rem",
+          "grid-gutter-desktop": "1px",
+          "grid-margin-desktop": "1.5rem",
+          "grid-gutter-mobile": "1px",
+          "space-lg": "1.5rem",
+          "space-md": "0.75rem",
+          "space-base": "1rem",
+          "space-2xl": "3rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "grid-margin-mobile": "0.75rem"
+        },
+        "fontFamily": {
+          "headline-sm": [
+            "Geist"
+          ],
+          "code-tabular": [
+            "JetBrains Mono"
+          ],
+          "metric-lg": [
+            "Geist"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "metric-hero": [
+            "Geist"
+          ],
+          "body-sm": [
+            "Geist"
+          ],
+          "body-md": [
+            "Geist"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "headline-lg-mobile": [
+            "Geist"
+          ]
+        },
+        "fontSize": {
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "code-tabular": [
+            "0.75rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "metric-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "0.6875rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.08em",
+              "fontWeight": "500"
+            }
+          ],
+          "metric-hero": [
+            "3rem",
+            {
+              "lineHeight": "1.1",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.45",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg-mobile": [
+            "1.25rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-surface-variant z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center gap-space-sm border-b border-surface-variant bg-surface-container-lowest"><img alt="Editorial Intelligence Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VSNL5hXdoAQylrJH8fRzJfP7FGvXs1oR04KRV_7fuZmNaRuKI08zl7nUj8zJkh0JbEAhfXYWpE-UkyIJ6XQ1Y7ClbWcUSQrPG-e05eAyuNSFPGxtpoNDVDjmyS9JsLP_hTls_yq2RHvo7DmoPKNc05hJQpFa2fT4UBI9lO6Hl7-RbghHiAO1biaD5jFMPj1wotsaYkpwKH99n9eJHpeOIYW1GgZQdicEa_IrkMq_87mN4iK8n5Wcvc-dVG"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none uppercase">CONTENT INTEL</span><span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase leading-tight mt-space-xxs">INSTAGRAM REELS INTELLIGENCE</span></div></div><div class="px-space-base py-space-sm border-b border-surface-variant/60 bg-surface-container/40"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">TERMINAL MATRIX</span><span class="font-code-tabular text-code-tabular text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 bg-tertiary rounded-none"></span>ONLINE</span></div></div><nav class="flex flex-col py-space-xs" data-active-classes="bg-surface-container-high text-on-surface border-l-2 border-primary-container pl-[14px] font-semibold"><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span>Overview</a><a aria-current="page" class="flex items-center gap-space-sm px-space-base py-space-sm uppercase transition-colors bg-surface-container-high text-on-surface border-l-2 border-primary-container pl-[14px] font-semibold" data-path="content-topics" href="#"><span class="material-symbols-outlined text-[18px]">topic</span>Content Topics</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="all-reels" href="#"><span class="material-symbols-outlined text-[18px]">play_circle</span>All Reels</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="performance" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span>Performance</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="insights" href="#"><span class="material-symbols-outlined text-[18px]">insights</span>Insights</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span>Settings</a></nav></div><div class="p-space-base border-t border-surface-variant bg-surface-container-lowest"><div class="bg-surface-container p-space-sm border border-surface-variant/80 flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">alternate_email</span><span class="font-code-tabular text-code-tabular font-semibold text-on-surface">faceworkout.studio</span></div><button class="text-on-surface-variant hover:text-on-surface p-space-xxs hover:bg-surface-container-high transition-colors" title="Trigger Sync"><span class="material-symbols-outlined text-[16px]">sync</span></button></div><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full bg-tertiary opacity-75"></span><span class="relative inline-flex h-2 w-2 bg-tertiary"></span></span><span class="font-code-tabular text-code-tabular text-tertiary">Connected - Synced 12m ago</span></div><div class="mt-space-xxs pt-space-xxs border-t border-surface-variant/50 flex justify-between items-center"><span class="font-label-caps text-label-caps text-on-surface-variant">LATENCY 24MS</span><span class="font-label-caps text-label-caps text-primary">V2.4 INTEL</span></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-variant z-40 flex items-center justify-between px-space-base"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant"><span class="hover:text-on-surface uppercase">Workspace</span><span class="text-outline">/</span><span class="text-on-surface uppercase font-semibold">Reels Intelligence Engine</span></div><div class="h-4 w-px bg-surface-variant"></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline pointer-events-none">search</span><input class="bg-surface-container border border-surface-variant text-on-surface placeholder:text-outline text-code-tabular pl-8 pr-space-sm py-1 w-64 focus:outline-none focus:border-primary transition-colors" placeholder="Search topics, reels, hooks..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center border border-surface-variant bg-surface-container"><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">30D</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant bg-surface-container-highest text-on-surface font-semibold">90D</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">YTD</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">ALL</button><div class="flex items-center gap-1 px-2.5 py-1 font-code-tabular text-code-tabular text-on-surface"><span class="material-symbols-outlined text-[14px] text-outline">calendar_today</span>Last 90 Days (Oct 1 - Dec 31)</div></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-1 px-space-sm py-1 bg-surface-container border border-surface-variant text-on-surface font-label-caps text-label-caps uppercase hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[15px]">refresh</span>Refresh Data</button><button class="flex items-center gap-1 px-space-sm py-1 bg-primary text-on-primary font-label-caps text-label-caps uppercase font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors"><span class="material-symbols-outlined text-[15px]">download</span>Export CSV</button></div><div class="h-4 w-px bg-surface-variant"></div><div class="flex items-center gap-space-xs"><button class="w-8 h-8 flex items-center justify-center border border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 px-space-base pb-space-2xl bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Topic Header / Breadcrumb Matrix Strip -->
+<section class="flex flex-col bg-surface-container-low mb-space-base shadow-sm">
+<div class="flex items-center justify-between px-space-base py-space-sm bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span> Topics Registry
+        </a>
+<span class="text-outline">/</span>
+<span class="text-secondary tracking-widest">Face</span>
+<span class="text-outline">/</span>
+<span class="text-on-surface font-semibold text-primary">Smile Lines</span>
+<span class="text-outline">·</span>
+<span class="text-code-tabular text-on-surface-variant">ID: TPC-092-FAC</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 bg-surface-container text-tertiary font-code-tabular text-code-tabular uppercase flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-tertiary"></span> Model: Active Matrix
+        </span>
+<span class="px-space-xs py-0.5 bg-primary-container/20 text-primary-fixed font-code-tabular text-code-tabular">
+          90D Trajectory
+        </span>
+</div>
+</div>
+<!-- Title & Status Row -->
+<div class="p-space-base flex flex-col md:flex-row md:items-end justify-between gap-space-base">
+<div class="flex flex-col gap-space-xxs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight uppercase">Smile Lines</h1>
+<span class="px-space-xs py-0.5 bg-surface-container-high text-secondary-fixed text-label-caps font-label-caps uppercase">Category: Face</span>
+<span class="px-space-sm py-0.5 bg-tertiary-container/30 text-tertiary text-label-caps font-label-caps uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">trending_up</span> Above Benchmark (+181%)
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-3xl">
+          Quantitative diagnosis of nasolabial fold routine reels. Consistently outperforms overall account median reach; primary organic follower capture topic for Q4.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs self-start md:self-auto">
+<button class="px-space-sm py-1.5 bg-surface-container text-on-surface font-label-caps text-label-caps uppercase hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">tune</span> Filter Topic
+        </button>
+<button class="px-space-sm py-1.5 bg-primary text-on-primary font-label-caps text-label-caps uppercase font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">add_circle</span> New Production Brief
+        </button>
+</div>
+</div>
+<!-- Inline Numerical Strip -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-surface-container-highest">
+<div class="p-space-sm bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Published Reels</span>
+<span class="font-metric-lg text-metric-lg text-on-surface font-semibold tracking-tight mt-1">42</span>
+<span class="font-code-tabular text-code-tabular text-tertiary mt-0.5">100% indexed</span>
+</div>
+<div class="p-space-sm bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Cumulative Views</span>
+<span class="font-metric-lg text-metric-lg text-on-surface font-semibold tracking-tight mt-1">2.15M</span>
+<span class="font-code-tabular text-code-tabular text-tertiary mt-0.5">+412K vs prev 90d</span>
+</div>
+<div class="p-space-sm bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Mean Views</span>
+<span class="font-metric-lg text-metric-lg text-primary font-semibold tracking-tight mt-1">51.2K</span>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant mt-0.5">Account avg: 18.2K</span>
+</div>
+<div class="p-space-sm bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Median Views</span>
+<span class="font-metric-lg text-metric-lg text-on-surface font-semibold tracking-tight mt-1">42.0K</span>
+<span class="font-code-tabular text-code-tabular text-tertiary mt-0.5">IQR: 28.5K - 64.1K</span>
+</div>
+<div class="p-space-sm bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Mean Eng. Rate</span>
+<span class="font-metric-lg text-metric-lg text-secondary-fixed font-semibold tracking-tight mt-1">5.8%</span>
+<span class="font-code-tabular text-code-tabular text-tertiary mt-0.5">+1.9% delta benchmark</span>
+</div>
+<div class="p-space-sm bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Consistency Score</span>
+<span class="font-metric-lg text-metric-lg text-tertiary font-semibold tracking-tight mt-1">92%</span>
+<span class="font-code-tabular text-code-tabular text-on-surface mt-0.5">39/42 Above Baseline</span>
+</div>
+</div>
+</section>
+<!-- Visual Analytics Doublet: Trajectory + Distribution -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-base mb-space-base">
+<!-- Trajectory Time Series (8 cols) -->
+<div class="lg:col-span-8 bg-surface-container-low p-space-base flex flex-col shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-lowest -mx-space-base -mt-space-base p-space-base">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase">Views Over Time &amp; Trajectory</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">90-Day Volumetric Run Chart · Annotated Peak Outliers</span>
+</div>
+<div class="flex items-center gap-space-xs font-code-tabular text-code-tabular">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2.5 h-0.5 bg-primary inline-block"></span> Actual
+          </span>
+<span class="flex items-center gap-1 text-on-surface-variant ml-2">
+<span class="w-2.5 h-0.5 bg-outline inline-block"></span> Account Baseline (18.2K)
+          </span>
+</div>
+</div>
+<!-- Precision SVG Chart -->
+<div class="relative w-full h-64 bg-surface-container-lowest p-space-xs flex flex-col justify-between overflow-hidden">
+<!-- SVG Grid & Vectors -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 760 220">
+<!-- Horizontal reference lines -->
+<line stroke="#273646" stroke-dasharray="2 4" stroke-width="1" x1="0" x2="760" y1="30" y2="30"></line>
+<text fill="#a9898e" font-family="JetBrains Mono" font-size="10" x="8" y="26">120K</text>
+<line stroke="#273646" stroke-dasharray="2 4" stroke-width="1" x1="0" x2="760" y1="80" y2="80"></line>
+<text fill="#a9898e" font-family="JetBrains Mono" font-size="10" x="8" y="76">80K</text>
+<line stroke="#273646" stroke-dasharray="2 4" stroke-width="1" x1="0" x2="760" y1="130" y2="130"></line>
+<text fill="#a9898e" font-family="JetBrains Mono" font-size="10" x="8" y="126">40K</text>
+<!-- Baseline 18.2K -->
+<line stroke="#5a4045" stroke-dasharray="4 2" stroke-width="1.5" x1="0" x2="760" y1="168" y2="168"></line>
+<text fill="#ffb1c0" font-family="JetBrains Mono" font-size="9" x="660" y="163">BASELINE 18.2K</text>
+<!-- Gradient Area Fill -->
+<defs>
+<lineargradient id="magentaGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff4c83" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#ff4c83" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Area -->
+<polygon fill="url(#magentaGradient)" points="
+            40,140 75,135 110,128 145,115 180,138 215,95 250,110 285,120 
+            320,60 355,85 390,105 425,118 460,25 495,78 530,92 565,80 
+            600,105 635,70 670,82 705,75 740,68 740,200 40,200
+          "></polygon>
+<!-- Trajectory Line -->
+<polyline fill="none" points="
+            40,140 75,135 110,128 145,115 180,138 215,95 250,110 285,120 
+            320,60 355,85 390,105 425,118 460,25 495,78 530,92 565,80 
+            600,105 635,70 670,82 705,75 740,68
+          " stroke="#ffb1c0" stroke-width="2"></polyline>
+<!-- Data Points -->
+<circle cx="40" cy="140" fill="#ff4c83" r="3"></circle>
+<circle cx="145" cy="115" fill="#ff4c83" r="3"></circle>
+<circle cx="215" cy="95" fill="#ff4c83" r="3"></circle>
+<circle cx="320" cy="60" fill="#ffb1c0" r="4" stroke="#041423" stroke-width="1.5"></circle>
+<circle cx="460" cy="25" fill="#ff4c83" r="5" stroke="#ffd9df" stroke-width="2"></circle>
+<circle cx="635" cy="70" fill="#ffb1c0" r="4"></circle>
+<circle cx="740" cy="68" fill="#4edea3" r="4"></circle>
+<!-- Outlier Annotation Pin: Nov 14 (460, 25) -->
+<line stroke="#ff4c83" stroke-width="1" x1="460" x2="460" y1="25" y2="6"></line>
+</svg>
+<!-- Dynamic Overlay Floating Tag for Outlier -->
+<div class="absolute left-[58%] top-2 bg-surface-container-high px-space-xs py-0.5 shadow-md flex items-center gap-1.5 pointer-events-none">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="font-code-tabular text-code-tabular text-on-surface">NOV 14: 'Smoother Smile Lines' <strong class="text-primary font-semibold">125.4K</strong></span>
+</div>
+<div class="absolute left-[39%] top-11 bg-surface-container-high/90 px-space-xs py-0.5 shadow-sm hidden md:flex items-center gap-1 pointer-events-none">
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">OCT 28: 94.2K</span>
+</div>
+<!-- X Axis labels -->
+<div class="flex justify-between items-center pt-space-xs font-code-tabular text-code-tabular text-outline">
+<span>OCT 01</span>
+<span>OCT 15</span>
+<span>NOV 01</span>
+<span>NOV 15</span>
+<span>DEC 01</span>
+<span>DEC 15</span>
+<span>DEC 31</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs bg-surface-container px-space-sm py-1 font-label-caps text-label-caps">
+<span class="text-on-surface-variant">VELOCITY MOMENTUM: <span class="text-tertiary font-semibold">+14.2%</span> VS PRIOR 30D PERIOD</span>
+<span class="text-on-surface-variant">RUN-RATE: <strong class="text-on-surface">3.2 REELS/WK</strong></span>
+</div>
+</div>
+<!-- Performance Distribution Histogram (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-low p-space-base flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex flex-col pb-space-sm mb-space-sm bg-surface-container-lowest -mx-space-base -mt-space-base p-space-base">
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase">Distribution</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Volumetric Spread (42 Total Reels)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+          High median clustering in the 40K–60K bracket demonstrates systematic repeatability with minimal floor variance.
+        </p>
+<!-- Vertical Histogram Bars -->
+<div class="flex flex-col gap-space-sm">
+<!-- Tier 0-20K -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface-variant">0 - 20K Views</span>
+<span class="text-on-surface">3 reels (7.1%)</span>
+</div>
+<div class="w-full bg-surface-container h-4 flex">
+<div class="bg-outline-variant h-full" style="width: 7.1%;"></div>
+</div>
+</div>
+<!-- Tier 20-40K -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface-variant">20K - 40K Views</span>
+<span class="text-on-surface">12 reels (28.5%)</span>
+</div>
+<div class="w-full bg-surface-container h-4 flex">
+<div class="bg-secondary-container h-full" style="width: 28.5%;"></div>
+</div>
+</div>
+<!-- Tier 40-60K (Peak) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-code-tabular text-code-tabular">
+<span class="text-primary font-semibold">40K - 60K Views [MEDIAN CORE]</span>
+<span class="text-primary font-semibold">18 reels (42.8%)</span>
+</div>
+<div class="w-full bg-surface-container h-4 flex">
+<div class="bg-primary-container h-full" style="width: 42.8%;"></div>
+</div>
+</div>
+<!-- Tier 60-80K -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface-variant">60K - 80K Views</span>
+<span class="text-on-surface">6 reels (14.2%)</span>
+</div>
+<div class="w-full bg-surface-container h-4 flex">
+<div class="bg-secondary h-full" style="width: 14.2%;"></div>
+</div>
+</div>
+<!-- Tier 80K+ -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-code-tabular text-code-tabular">
+<span class="text-tertiary">80K+ Views [OUTLIERS]</span>
+<span class="text-tertiary font-semibold">3 reels (7.1%)</span>
+</div>
+<div class="w-full bg-surface-container h-4 flex">
+<div class="bg-tertiary h-full" style="width: 7.1%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-base p-space-sm bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-code-tabular text-code-tabular">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span class="text-on-surface">Risk Floor: Low (&lt;10% Fail rate)</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">SKEW: +0.84</span>
+</div>
+</div>
+</section>
+<!-- Format / Type Breakdown Matrix -->
+<section class="bg-surface-container-low p-space-base mb-space-base shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-sm mb-space-sm bg-surface-container-lowest -mx-space-base -mt-space-base p-space-base gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase">Content Sub-Format Breakdown</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Matrix Attribution across 4 Architectural Formats</span>
+</div>
+<div class="px-space-sm py-1 bg-surface-container text-on-surface font-code-tabular text-code-tabular">
+        Sorted by Quantitative Efficiency
+      </div>
+</div>
+<!-- Matrix Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-caps text-label-caps uppercase">
+<th class="py-space-xs px-space-sm">Sub-Format Taxonomy</th>
+<th class="py-space-xs px-space-sm text-right">Volume</th>
+<th class="py-space-xs px-space-sm text-right">Mean Views</th>
+<th class="py-space-xs px-space-sm text-right">Eng. Rate</th>
+<th class="py-space-xs px-space-sm text-right">Format Score</th>
+<th class="py-space-xs px-space-sm">Efficiency Vector</th>
+<th class="py-space-xs px-space-sm text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-none font-code-tabular text-code-tabular text-on-surface">
+<!-- Row 1: Quick Tip -->
+<tr class="bg-surface-container/60 hover:bg-surface-container-high transition-colors">
+<td class="py-space-sm px-space-sm font-headline-sm text-body-md font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-primary"></span>
+              Quick Tip (under 15s)
+            </td>
+<td class="py-space-sm px-space-sm text-right">14 reels</td>
+<td class="py-space-sm px-space-sm text-right text-primary font-semibold">58.4K</td>
+<td class="py-space-sm px-space-sm text-right">6.2%</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-tertiary">98 / 100</td>
+<td class="py-space-sm px-space-sm">
+<div class="w-36 bg-surface-container-highest h-2 inline-block">
+<div class="bg-primary h-2" style="width: 98%;"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="px-space-xs py-0.5 bg-primary/20 text-primary-fixed font-label-caps text-label-caps uppercase">TOP PERFORMING</span>
+</td>
+</tr>
+<!-- Row 2: Exercise Routine -->
+<tr class="bg-surface-container/30 hover:bg-surface-container-high transition-colors">
+<td class="py-space-sm px-space-sm font-headline-sm text-body-md text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-secondary"></span>
+              Exercise Routine (Full 4-Step)
+            </td>
+<td class="py-space-sm px-space-sm text-right">16 reels</td>
+<td class="py-space-sm px-space-sm text-right">52.1K</td>
+<td class="py-space-sm px-space-sm text-right">5.5%</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-on-surface">91 / 100</td>
+<td class="py-space-sm px-space-sm">
+<div class="w-36 bg-surface-container-highest h-2 inline-block">
+<div class="bg-secondary h-2" style="width: 91%;"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="px-space-xs py-0.5 bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase">OPTIMAL</span>
+</td>
+</tr>
+<!-- Row 3: Before & After -->
+<tr class="bg-surface-container/60 hover:bg-surface-container-high transition-colors">
+<td class="py-space-sm px-space-sm font-headline-sm text-body-md text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-tertiary"></span>
+              Before &amp; After Transformation
+            </td>
+<td class="py-space-sm px-space-sm text-right">6 reels</td>
+<td class="py-space-sm px-space-sm text-right">48.3K</td>
+<td class="py-space-sm px-space-sm text-right text-tertiary font-semibold">7.1%</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-on-surface">89 / 100</td>
+<td class="py-space-sm px-space-sm">
+<div class="w-36 bg-surface-container-highest h-2 inline-block">
+<div class="bg-tertiary h-2" style="width: 89%;"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="px-space-xs py-0.5 bg-tertiary-container/30 text-tertiary font-label-caps text-label-caps uppercase">HIGH SHARE RATE</span>
+</td>
+</tr>
+<!-- Row 4: Myth vs Fact Educational -->
+<tr class="bg-surface-container/20 hover:bg-surface-container-high transition-colors">
+<td class="py-space-sm px-space-sm font-headline-sm text-body-md text-outline flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-outline"></span>
+              Myth vs Fact Educational
+            </td>
+<td class="py-space-sm px-space-sm text-right text-outline">6 reels</td>
+<td class="py-space-sm px-space-sm text-right text-outline">32.0K</td>
+<td class="py-space-sm px-space-sm text-right text-outline">3.9%</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-error">64 / 100</td>
+<td class="py-space-sm px-space-sm">
+<div class="w-36 bg-surface-container-highest h-2 inline-block">
+<div class="bg-outline h-2" style="width: 64%;"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="px-space-xs py-0.5 bg-error-container/30 text-error font-label-caps text-label-caps uppercase">UNDERPERFORMING</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Strategic Directive Box -->
+<div class="mt-space-base p-space-sm bg-surface-container-highest flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">terminal</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wide">STRATEGIC DIRECTIVE</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+<strong>Action:</strong> Prioritize <strong class="text-primary-fixed">&lt;15s Quick Tips</strong> and <strong class="text-tertiary-fixed">Before/After</strong> transformation reels; immediately deprecate static Myth-Busting talking-head formats which suffer a 44% drop in 3-second completion rate.
+        </p>
+</div>
+</div>
+</section>
+<!-- Side-by-Side Granular Reel Performance Diagnostic -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-space-base mb-space-base">
+<!-- Top 3 Outliers -->
+<div class="bg-surface-container-low p-space-base flex flex-col shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-lowest -mx-space-base -mt-space-base p-space-base">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-primary"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase">Peak Outlier Reels (Top 3)</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary uppercase">VIRAL INFLECTION</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Outlier 1 -->
+<div class="p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface">Smoother Smile Lines in Minutes</h3>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">POSTED: 2024-11-14 · RUNTIME: 11s · FORMAT: Quick Tip</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-body-md font-bold text-primary">125.4K Views</span>
+<span class="font-code-tabular text-code-tabular text-tertiary">7.8% ER (9.2K saves)</span>
+</div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest font-code-tabular text-code-tabular text-on-surface flex items-center gap-1.5">
+<span class="text-primary font-bold">[HOOK]</span>
+<span class="truncate">"If your smile lines look like this at 35, do NOT do this..."</span>
+</div>
+</div>
+<!-- Outlier 2 -->
+<div class="p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface">Stop massaging downward!</h3>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">POSTED: 2024-10-28 · RUNTIME: 14s · FORMAT: Quick Tip</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-body-md font-bold text-primary">94.2K Views</span>
+<span class="font-code-tabular text-code-tabular text-tertiary">6.9% ER (6.8K saves)</span>
+</div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest font-code-tabular text-code-tabular text-on-surface flex items-center gap-1.5">
+<span class="text-primary font-bold">[HOOK]</span>
+<span class="truncate">"Stop pulling here unless you want deeper laugh folds."</span>
+</div>
+</div>
+<!-- Outlier 3 -->
+<div class="p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-body-md font-semibold text-on-surface">30s Morning Mouth Exercise</h3>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">POSTED: 2024-12-05 · RUNTIME: 22s · FORMAT: Routine</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-body-md font-bold text-primary">82.1K Views</span>
+<span class="font-code-tabular text-code-tabular text-tertiary">6.4% ER (4.9K saves)</span>
+</div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest font-code-tabular text-code-tabular text-on-surface flex items-center gap-1.5">
+<span class="text-primary font-bold">[HOOK]</span>
+<span class="truncate">"My 60-year-old mother’s exact daily 30-second cheek routine."</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Lowest 3 in Topic -->
+<div class="bg-surface-container-low p-space-base flex flex-col shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-lowest -mx-space-base -mt-space-base p-space-base">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-error"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase">Underperforming In Topic (Lowest 3)</span>
+</div>
+<span class="font-label-caps text-label-caps text-error uppercase">FAILURE DIAGNOSTIC</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Low 1 -->
+<div class="p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-body-md font-semibold text-outline">Why facial exercises take 6 weeks</h3>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">POSTED: 2024-10-12 · RUNTIME: 46s · FORMAT: Myth vs Fact</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-body-md font-bold text-outline">18.4K Views</span>
+<span class="font-code-tabular text-code-tabular text-outline">3.1% ER (210 saves)</span>
+</div>
+</div>
+<div class="p-space-xs bg-error-container/20 font-code-tabular text-code-tabular text-error flex items-center gap-1.5">
+<span class="font-bold">[DIAGNOSTIC]</span>
+<span class="truncate">Hook too clinical. Delayed kinetic motion until 0:14. Retention drops 62% by 0:04.</span>
+</div>
+</div>
+<!-- Low 2 -->
+<div class="p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-body-md font-semibold text-outline">Anatomy of the Zygomaticus Major</h3>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">POSTED: 2024-11-02 · RUNTIME: 54s · FORMAT: Myth vs Fact</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-body-md font-bold text-outline">19.1K Views</span>
+<span class="font-code-tabular text-code-tabular text-outline">3.4% ER (340 saves)</span>
+</div>
+</div>
+<div class="p-space-xs bg-error-container/20 font-code-tabular text-code-tabular text-error flex items-center gap-1.5">
+<span class="font-bold">[DIAGNOSTIC]</span>
+<span class="truncate">Medical textbook terminology creates immediate bounce. Zero aspirational framing.</span>
+</div>
+</div>
+<!-- Low 3 -->
+<div class="p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-body-md font-semibold text-outline">Do face rollers actually work?</h3>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">POSTED: 2024-12-18 · RUNTIME: 38s · FORMAT: Myth vs Fact</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-body-md font-bold text-outline">22.7K Views</span>
+<span class="font-code-tabular text-code-tabular text-outline">3.8% ER (510 saves)</span>
+</div>
+</div>
+<div class="p-space-xs bg-error-container/20 font-code-tabular text-code-tabular text-error flex items-center gap-1.5">
+<span class="font-bold">[DIAGNOSTIC]</span>
+<span class="truncate">Generic topic saturated across market. Absent creator facial close-up in opening frame.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Production Blueprint & Algorithmic Parameters for Smile Lines -->
+<section class="bg-surface-container-low p-space-base shadow-sm">
+<div class="pb-space-sm mb-space-base bg-surface-container-lowest -mx-space-base -mt-space-base p-space-base flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase">Production Recommendations &amp; Parameters</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Empirical Creative Guidelines Based on 42 Validated Deployments</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-tertiary"></span> AUTOMATED DIRECTIVE SYNTHESIS
+      </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-base">
+<!-- Recommendation 1: Cadence -->
+<div class="p-space-base bg-surface-container flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold">CADENCE GUIDANCE</span>
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_add_on</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">2 → 3 Reels / Wk</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+            Algorithm capacity saturation index is only at <strong>34%</strong>. The account has headroom to increase weekly releases by 50% without cannibalizing median reach.
+          </p>
+</div>
+<div class="mt-space-base pt-space-xs bg-surface-container-lowest p-space-xs font-code-tabular text-code-tabular text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> Projected +180K views/mo
+        </div>
+</div>
+<!-- Recommendation 2: Optimal Duration -->
+<div class="p-space-base bg-surface-container flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase font-bold">OPTIMAL DURATION</span>
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">timer</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">9 – 14 Seconds</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+            Video completion rates peak at <strong>84.2%</strong> inside the 9-14s envelope, activating secondary feed recommendation cascades on Instagram Reels.
+          </p>
+</div>
+<div class="mt-space-base pt-space-xs bg-surface-container-lowest p-space-xs font-code-tabular text-code-tabular text-on-surface-variant flex items-center justify-between">
+<span>Target Pacing: Rapid Loop</span>
+<span class="text-secondary-fixed font-semibold">12.2s SWEET SPOT</span>
+</div>
+</div>
+<!-- Recommendation 3: Recommended Hook Archetype -->
+<div class="p-space-base bg-surface-container flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-bold">HOOK FRAMEWORK</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">bolt</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">Visual Immediate</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+            Begin on frame 0 with index finger actively hooked at the corner of the lip with high kinetic contrast. Eliminate spoken introductions or greetings.
+          </p>
+</div>
+<div class="mt-space-base pt-space-xs bg-surface-container-lowest p-space-xs font-code-tabular text-code-tabular text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> 94.8% 3s Hold Verified
+        </div>
+</div>
+</div>
+</section>
+</div></main></div></body></html>

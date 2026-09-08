@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface": "#d4e4f9",
+          "surface-container-lowest": "#010f1e",
+          "tertiary-fixed-dim": "#4edea3",
+          "outline-variant": "#5a4045",
+          "on-tertiary-container": "#00311f",
+          "tertiary": "#4edea3",
+          "surface-tint": "#ffb1c0",
+          "surface-bright": "#2b3b4b",
+          "on-tertiary-fixed": "#002113",
+          "tertiary-fixed": "#6ffbbe",
+          "on-primary-fixed-variant": "#90003d",
+          "error": "#ffb4ab",
+          "on-surface-variant": "#e2bec3",
+          "on-tertiary": "#003824",
+          "on-secondary-fixed": "#07006c",
+          "surface-container-low": "#0c1d2c",
+          "primary": "#ffb1c0",
+          "secondary": "#c0c1ff",
+          "inverse-surface": "#d4e4f9",
+          "on-primary-fixed": "#3f0017",
+          "on-primary": "#660029",
+          "on-secondary": "#1000a9",
+          "background": "#041423",
+          "on-error": "#690005",
+          "inverse-on-surface": "#223241",
+          "on-primary-container": "#5a0023",
+          "surface": "#041423",
+          "primary-container": "#ff4c83",
+          "primary-fixed": "#ffd9df",
+          "secondary-fixed-dim": "#c0c1ff",
+          "outline": "#a9898e",
+          "surface-container": "#112130",
+          "on-background": "#d4e4f9",
+          "inverse-primary": "#bb0452",
+          "secondary-fixed": "#e1e0ff",
+          "on-tertiary-fixed-variant": "#005236",
+          "tertiary-container": "#00a572",
+          "surface-dim": "#041423",
+          "primary-fixed-dim": "#ffb1c0",
+          "on-secondary-container": "#b0b2ff",
+          "on-error-container": "#ffdad6",
+          "secondary-container": "#3131c0",
+          "error-container": "#93000a",
+          "on-secondary-fixed-variant": "#2f2ebe",
+          "surface-variant": "#273646",
+          "surface-container-high": "#1c2b3b",
+          "surface-container-highest": "#273646"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xxs": "0.125rem",
+          "space-xl": "2rem",
+          "grid-gutter-desktop": "1px",
+          "grid-margin-desktop": "1.5rem",
+          "grid-gutter-mobile": "1px",
+          "space-lg": "1.5rem",
+          "space-md": "0.75rem",
+          "space-base": "1rem",
+          "space-2xl": "3rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "grid-margin-mobile": "0.75rem"
+        },
+        "fontFamily": {
+          "headline-sm": [
+            "Geist"
+          ],
+          "code-tabular": [
+            "JetBrains Mono"
+          ],
+          "metric-lg": [
+            "Geist"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "metric-hero": [
+            "Geist"
+          ],
+          "body-sm": [
+            "Geist"
+          ],
+          "body-md": [
+            "Geist"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "headline-lg-mobile": [
+            "Geist"
+          ]
+        },
+        "fontSize": {
+          "headline-sm": [
+            "1rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "code-tabular": [
+            "0.75rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "metric-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "0.6875rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.08em",
+              "fontWeight": "500"
+            }
+          ],
+          "metric-hero": [
+            "3rem",
+            {
+              "lineHeight": "1.1",
+              "letterSpacing": "-0.04em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1.45",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "1.5rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg-mobile": [
+            "1.25rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-surface-variant z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center gap-space-sm border-b border-surface-variant bg-surface-container-lowest"><img alt="Editorial Intelligence Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VSNL5hXdoAQylrJH8fRzJfP7FGvXs1oR04KRV_7fuZmNaRuKI08zl7nUj8zJkh0JbEAhfXYWpE-UkyIJ6XQ1Y7ClbWcUSQrPG-e05eAyuNSFPGxtpoNDVDjmyS9JsLP_hTls_yq2RHvo7DmoPKNc05hJQpFa2fT4UBI9lO6Hl7-RbghHiAO1biaD5jFMPj1wotsaYkpwKH99n9eJHpeOIYW1GgZQdicEa_IrkMq_87mN4iK8n5Wcvc-dVG"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none uppercase">CONTENT INTEL</span><span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase leading-tight mt-space-xxs">INSTAGRAM REELS INTELLIGENCE</span></div></div><div class="px-space-base py-space-sm border-b border-surface-variant/60 bg-surface-container/40"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">TERMINAL MATRIX</span><span class="font-code-tabular text-code-tabular text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 bg-tertiary rounded-none"></span>ONLINE</span></div></div><nav class="flex flex-col py-space-xs" data-active-classes="bg-surface-container-high text-on-surface border-l-2 border-primary-container pl-[14px] font-semibold"><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span>Overview</a><a aria-current="page" class="flex items-center gap-space-sm px-space-base py-space-sm uppercase transition-colors bg-surface-container-high text-on-surface border-l-2 border-primary-container pl-[14px] font-semibold" data-path="content-topics" href="#"><span class="material-symbols-outlined text-[18px]">topic</span>Content Topics</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="all-reels" href="#"><span class="material-symbols-outlined text-[18px]">play_circle</span>All Reels</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="performance" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span>Performance</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="insights" href="#"><span class="material-symbols-outlined text-[18px]">insights</span>Insights</a><a class="flex items-center gap-space-sm px-space-base py-space-sm font-label-caps text-label-caps uppercase text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors border-l-2 border-transparent" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span>Settings</a></nav></div><div class="p-space-base border-t border-surface-variant bg-surface-container-lowest"><div class="bg-surface-container p-space-sm border border-surface-variant/80 flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">alternate_email</span><span class="font-code-tabular text-code-tabular font-semibold text-on-surface">faceworkout.studio</span></div><button class="text-on-surface-variant hover:text-on-surface p-space-xxs hover:bg-surface-container-high transition-colors" title="Trigger Sync"><span class="material-symbols-outlined text-[16px]">sync</span></button></div><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full bg-tertiary opacity-75"></span><span class="relative inline-flex h-2 w-2 bg-tertiary"></span></span><span class="font-code-tabular text-code-tabular text-tertiary">Connected - Synced 12m ago</span></div><div class="mt-space-xxs pt-space-xxs border-t border-surface-variant/50 flex justify-between items-center"><span class="font-label-caps text-label-caps text-on-surface-variant">LATENCY 24MS</span><span class="font-label-caps text-label-caps text-primary">V2.4 INTEL</span></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-variant z-40 flex items-center justify-between px-space-base"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant"><span class="hover:text-on-surface uppercase">Workspace</span><span class="text-outline">/</span><span class="text-on-surface uppercase font-semibold">Reels Intelligence Engine</span></div><div class="h-4 w-px bg-surface-variant"></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline pointer-events-none">search</span><input class="bg-surface-container border border-surface-variant text-on-surface placeholder:text-outline text-code-tabular pl-8 pr-space-sm py-1 w-64 focus:outline-none focus:border-primary transition-colors" placeholder="Search topics, reels, hooks..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center border border-surface-variant bg-surface-container"><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">30D</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant bg-surface-container-highest text-on-surface font-semibold">90D</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">YTD</button><button class="px-2 py-1 font-label-caps text-label-caps border-r border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">ALL</button><div class="flex items-center gap-1 px-2.5 py-1 font-code-tabular text-code-tabular text-on-surface"><span class="material-symbols-outlined text-[14px] text-outline">calendar_today</span>Last 90 Days (Oct 1 - Dec 31)</div></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-1 px-space-sm py-1 bg-surface-container border border-surface-variant text-on-surface font-label-caps text-label-caps uppercase hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[15px]">refresh</span>Refresh Data</button><button class="flex items-center gap-1 px-space-sm py-1 bg-primary text-on-primary font-label-caps text-label-caps uppercase font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors"><span class="material-symbols-outlined text-[15px]">download</span>Export CSV</button></div><div class="h-4 w-px bg-surface-variant"></div><div class="flex items-center gap-space-xs"><button class="w-8 h-8 flex items-center justify-center border border-surface-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 px-space-base pb-space-2xl bg-surface flex-1"><div class="flex flex-col w-full">
+<section class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-base mb-space-base shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xxs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-semibold">CONTENT CLUSTERING ENGINE</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Content Topics</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Compare the reach, engagement, and consistency of every content topic across your archive.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex bg-surface-container-low p-space-xxs shadow-inner">
+<button class="topic-tab-btn active px-space-base py-1 font-label-caps text-label-caps uppercase text-on-surface bg-surface-container-high transition-colors" data-filter="all">All Topics (14)</button>
+<button class="topic-tab-btn px-space-base py-1 font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-filter="face">Face (8)</button>
+<button class="topic-tab-btn px-space-base py-1 font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-filter="neck">Neck (3)</button>
+<button class="topic-tab-btn px-space-base py-1 font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-filter="body">Body (3)</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm pt-space-xs bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 flex-1 max-w-md">
+<span class="material-symbols-outlined text-[16px] text-outline">search</span>
+<input class="bg-transparent border-none text-code-tabular text-on-surface placeholder:text-outline w-full focus:outline-none" id="topic-search-input" placeholder="Search topic name or category..." type="text"/>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">SORT BY:</span>
+<select class="bg-surface-container text-on-surface font-code-tabular text-code-tabular px-space-sm py-1 border-none focus:outline-none cursor-pointer" id="topic-sort-select">
+<option selected="" value="avg-views">Avg Views (High to Low)</option>
+<option value="median-views">Median Views</option>
+<option value="eng-rate">Engagement Rate</option>
+<option value="reels">Reel Count</option>
+<option value="score">Performance Index</option>
+</select>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant bg-surface-container px-space-sm py-1">ARCHIVE: 412 REELS</span>
+</div>
+</div>
+</section>
+<section class="flex flex-col bg-surface-container-lowest p-space-base mb-space-base shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-md pb-space-sm bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">leaderboard</span>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wide">Topic Ranking &amp; Reach Distribution</h2>
+</div>
+<div class="flex items-center gap-space-lg font-code-tabular text-code-tabular text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="w-3 h-2 bg-primary/80"></span> Average Views</span>
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-3 bg-tertiary"></span> Median Notch</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-tertiary"></span> Above Bench</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-secondary"></span> Near Bench</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-primary-container"></span> Below Bench</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs" id="topics-ranking-container">
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="51.2" data-category="face" data-eng="5.8" data-median="42.0" data-reels="42" data-score="98.2">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Smile Lines</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">42 Reels · Peak 142K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 85.3%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 70%;" title="Median: 42.0K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">51.2K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">42.0K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">5.8% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-tertiary-container/30 text-tertiary uppercase"><span class="w-1.5 h-1.5 bg-tertiary"></span>ABOVE</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="48.7" data-category="face" data-eng="6.1" data-median="39.4" data-reels="38" data-score="95.4">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Slimmer Cheeks</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">38 Reels · Peak 128K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 81.1%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 65.6%;" title="Median: 39.4K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">48.7K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">39.4K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">6.1% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-tertiary-container/30 text-tertiary uppercase"><span class="w-1.5 h-1.5 bg-tertiary"></span>ABOVE</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="45.9" data-category="face" data-eng="5.2" data-median="36.5" data-reels="35" data-score="92.8">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Jawline Definition</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">35 Reels · Peak 119K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 76.5%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 60.8%;" title="Median: 36.5K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">45.9K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">36.5K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">5.2% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-tertiary-container/30 text-tertiary uppercase"><span class="w-1.5 h-1.5 bg-tertiary"></span>ABOVE</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="41.3" data-category="neck" data-eng="4.9" data-median="34.0" data-reels="31" data-score="88.0">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Double Chin Reducer</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-secondary uppercase">NECK</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">31 Reels · Peak 98K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 68.8%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 56.6%;" title="Median: 34.0K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">41.3K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">34.0K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">4.9% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-tertiary-container/30 text-tertiary uppercase"><span class="w-1.5 h-1.5 bg-tertiary"></span>ABOVE</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="38.5" data-category="face" data-eng="5.5" data-median="31.8" data-reels="29" data-score="84.6">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Dark Circles Reset</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">29 Reels · Peak 91K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 64.1%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 53.0%;" title="Median: 31.8K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">38.5K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">31.8K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">5.5% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-tertiary-container/30 text-tertiary uppercase"><span class="w-1.5 h-1.5 bg-tertiary"></span>ABOVE</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="35.2" data-category="body" data-eng="6.8" data-median="29.0" data-reels="34" data-score="82.1">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Lymphatic Drainage</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-tertiary uppercase">BODY</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">34 Reels · Peak 84K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 58.6%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 48.3%;" title="Median: 29.0K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">35.2K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">29.0K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">6.8% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-secondary-container/50 text-secondary uppercase"><span class="w-1.5 h-1.5 bg-secondary"></span>NEAR</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="33.4" data-category="neck" data-eng="4.7" data-median="27.4" data-reels="28" data-score="76.4">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Neck Tension Release</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-secondary uppercase">NECK</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">28 Reels · Peak 74K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 55.6%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 45.6%;" title="Median: 27.4K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">33.4K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">27.4K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">4.7% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-secondary-container/50 text-secondary uppercase"><span class="w-1.5 h-1.5 bg-secondary"></span>NEAR</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="31.8" data-category="face" data-eng="4.4" data-median="26.1" data-reels="26" data-score="74.0">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Forehead Smooth</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">26 Reels · Peak 69K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 53.0%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 43.5%;" title="Median: 26.1K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">31.8K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">26.1K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">4.4% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-secondary-container/50 text-secondary uppercase"><span class="w-1.5 h-1.5 bg-secondary"></span>NEAR</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="29.5" data-category="face" data-eng="5.0" data-median="24.0" data-reels="25" data-score="71.2">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Eye Brow Lift</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">25 Reels · Peak 62K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 49.1%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 40.0%;" title="Median: 24.0K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">29.5K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">24.0K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">5.0% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-secondary-container/50 text-secondary uppercase"><span class="w-1.5 h-1.5 bg-secondary"></span>NEAR</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="26.8" data-category="face" data-eng="4.1" data-median="21.3" data-reels="23" data-score="67.5">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Lip Plumper Massages</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">23 Reels · Peak 58K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 44.6%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 35.5%;" title="Median: 21.3K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">26.8K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">21.3K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">4.1% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-secondary-container/50 text-secondary uppercase"><span class="w-1.5 h-1.5 bg-secondary"></span>NEAR</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="22.1" data-category="body" data-eng="5.9" data-median="18.5" data-reels="21" data-score="64.2">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Posture &amp; Clavicle</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-tertiary uppercase">BODY</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">21 Reels · Peak 49K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 36.8%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 30.8%;" title="Median: 18.5K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">22.1K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">18.5K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">5.9% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-primary-container/30 text-primary-container uppercase"><span class="w-1.5 h-1.5 bg-primary-container"></span>BELOW</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="19.4" data-category="neck" data-eng="3.8" data-median="15.2" data-reels="22" data-score="55.8">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Tech Neck Wrinkles</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-secondary uppercase">NECK</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">22 Reels · Peak 38K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 32.3%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 25.3%;" title="Median: 15.2K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">19.4K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">15.2K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">3.8% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-primary-container/30 text-primary-container uppercase"><span class="w-1.5 h-1.5 bg-primary-container"></span>BELOW</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="16.2" data-category="face" data-eng="3.6" data-median="13.1" data-reels="19" data-score="51.0">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Nose Slimming Sculpt</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-primary uppercase">FACE</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">19 Reels · Peak 34K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 27.0%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 21.8%;" title="Median: 13.1K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">16.2K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">13.1K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">3.6% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-primary-container/30 text-primary-container uppercase"><span class="w-1.5 h-1.5 bg-primary-container"></span>BELOW</span>
+</div>
+</div>
+<div class="topic-bar-row flex items-center gap-space-sm p-space-xs hover:bg-surface-container transition-colors" data-avg="11.8" data-category="body" data-eng="3.2" data-median="9.2" data-reels="16" data-score="42.5">
+<div class="w-48 shrink-0 flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md text-on-surface truncate font-semibold">Decollete Smooth</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 bg-surface-container-high text-tertiary uppercase">BODY</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">16 Reels · Peak 24K</span>
+</div>
+<div class="flex-1 flex flex-col justify-center px-space-xs">
+<div class="relative w-full h-5 bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary/75" style="width: 19.6%;"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-tertiary" style="left: 15.3%;" title="Median: 9.2K"></div>
+</div>
+</div>
+<div class="w-64 shrink-0 flex items-center justify-between font-code-tabular text-code-tabular">
+<span class="text-on-surface font-semibold">11.8K <span class="text-on-surface-variant font-normal">AVG</span></span>
+<span class="text-tertiary font-semibold">9.2K <span class="text-on-surface-variant font-normal">MED</span></span>
+<span class="text-on-surface">3.2% <span class="text-on-surface-variant font-normal">ENG</span></span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps px-1.5 py-0.5 bg-primary-container/30 text-primary-container uppercase"><span class="w-1.5 h-1.5 bg-primary-container"></span>BELOW</span>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col bg-surface-container-lowest p-space-base mb-space-base shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">scatter_plot</span>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wide">Reach vs. Engagement Efficiency Matrix</h2>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">BENCHMARK CENTER: 30.0K VIEWS / 4.5% ENGAGEMENT</span>
+</div>
+<div class="relative w-full bg-surface-container-low p-space-base overflow-hidden">
+<div class="absolute inset-0 grid grid-cols-2 grid-rows-2 pointer-events-none">
+<div class="bg-surface-container/20 p-space-sm flex flex-col justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-semibold bg-surface-container-high px-1.5 py-0.5 w-fit">NICHE CULT (HIGH ENG / LOW REACH)</span>
+<span class="font-code-tabular text-code-tabular text-outline">High Saves &amp; Shares / Specific Audience</span>
+</div>
+<div class="bg-surface-bright/10 p-space-sm flex flex-col justify-between items-end">
+<span class="font-label-caps text-label-caps uppercase text-tertiary font-semibold bg-tertiary-container/30 px-1.5 py-0.5 w-fit">CORE STARS (HIGH REACH / HIGH ENG)</span>
+<span class="font-code-tabular text-code-tabular text-tertiary">Strategic Outperformers</span>
+</div>
+<div class="bg-surface-container-lowest/40 p-space-sm flex flex-col justify-between">
+<span class="font-label-caps text-label-caps uppercase text-error font-semibold bg-surface-container-high px-1.5 py-0.5 w-fit">UNDERPERFORMERS (LOW / LOW)</span>
+<span class="font-code-tabular text-code-tabular text-outline">Iterate Hook or Retire</span>
+</div>
+<div class="bg-surface-container/20 p-space-sm flex flex-col justify-between items-end">
+<span class="font-label-caps text-label-caps uppercase text-primary font-semibold bg-surface-container-high px-1.5 py-0.5 w-fit">VIRAL BROAD (HIGH REACH / LOW ENG)</span>
+<span class="font-code-tabular text-code-tabular text-outline">Discovery Accelerators</span>
+</div>
+</div>
+<div class="relative h-72 w-full mt-space-sm">
+<div class="absolute inset-0">
+<div class="absolute left-1/2 top-0 bottom-0 w-px bg-surface-variant"></div>
+<div class="absolute top-1/2 left-0 right-0 h-px bg-surface-variant"></div>
+</div>
+<div class="absolute left-[85%] bottom-[72%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-3 h-3 bg-tertiary shadow-sm"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface font-semibold bg-surface-container-highest px-1 py-0.5">Smile Lines (51.2K, 5.8%)</span>
+</div>
+<div class="absolute left-[81%] bottom-[76%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-3 h-3 bg-tertiary shadow-sm"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface font-semibold bg-surface-container-highest px-1 py-0.5">Slimmer Cheeks (48.7K, 6.1%)</span>
+</div>
+<div class="absolute left-[76%] bottom-[65%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-3 h-3 bg-tertiary shadow-sm"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface bg-surface-container px-1">Jawline (45.9K, 5.2%)</span>
+</div>
+<div class="absolute left-[68%] bottom-[61%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-3 h-3 bg-secondary shadow-sm"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface bg-surface-container px-1">Double Chin (41.3K, 4.9%)</span>
+</div>
+<div class="absolute left-[64%] bottom-[68%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-3 h-3 bg-tertiary shadow-sm"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface bg-surface-container px-1">Dark Circles (38.5K, 5.5%)</span>
+</div>
+<div class="absolute left-[42%] bottom-[85%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-3.5 h-3.5 bg-secondary shadow-sm"></div>
+<span class="font-code-tabular text-code-tabular text-secondary font-semibold bg-surface-container-highest px-1">Lymphatic Drainage (35.2K, 6.8%)</span>
+</div>
+<div class="absolute left-[55%] bottom-[58%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-on-surface-variant"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant bg-surface-container px-1">Neck Tension (33.4K, 4.7%)</span>
+</div>
+<div class="absolute left-[53%] bottom-[55%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-on-surface-variant"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant bg-surface-container px-1">Forehead (31.8K, 4.4%)</span>
+</div>
+<div class="absolute left-[49%] bottom-[62%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-secondary"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface bg-surface-container px-1">Eye Brow Lift (29.5K, 5.0%)</span>
+</div>
+<div class="absolute left-[36%] bottom-[73%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-secondary"></div>
+<span class="font-code-tabular text-code-tabular text-secondary bg-surface-container px-1">Posture (22.1K, 5.9%)</span>
+</div>
+<div class="absolute left-[44%] bottom-[51%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-on-surface-variant"></div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant bg-surface-container px-1">Lip Plumper (26.8K, 4.1%)</span>
+</div>
+<div class="absolute left-[32%] bottom-[47%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-error"></div>
+<span class="font-code-tabular text-code-tabular text-error bg-surface-container px-1">Tech Neck (19.4K, 3.8%)</span>
+</div>
+<div class="absolute left-[27%] bottom-[45%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-error"></div>
+<span class="font-code-tabular text-code-tabular text-error bg-surface-container px-1">Nose Slimming (16.2K, 3.6%)</span>
+</div>
+<div class="absolute left-[19%] bottom-[40%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 group cursor-pointer">
+<div class="w-2.5 h-2.5 bg-error"></div>
+<span class="font-code-tabular text-code-tabular text-error bg-surface-container px-1">Decollete (11.8K, 3.2%)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-code-tabular text-code-tabular text-on-surface-variant">
+<span>0K Avg Views</span>
+<span class="text-on-surface uppercase font-semibold">AVERAGE REACH (VIEWS) →</span>
+<span>60K Avg Views</span>
+</div>
+</div>
+</section>
+<section class="flex flex-col bg-surface-container-lowest p-space-base mb-space-base shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">table_chart</span>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wide">Topic Performance Matrix</h2>
+</div>
+<span class="font-code-tabular text-code-tabular text-outline">14 TOPICS INDEXED · HEAT SHADING ON PEAK EFFICIENCY</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-caps text-label-caps text-on-surface-variant uppercase">
+<th class="py-2.5 px-space-sm">Topic</th>
+<th class="py-2.5 px-space-sm">Category</th>
+<th class="py-2.5 px-space-sm text-right">Reels</th>
+<th class="py-2.5 px-space-sm text-right">Avg Views</th>
+<th class="py-2.5 px-space-sm text-right">Median Views</th>
+<th class="py-2.5 px-space-sm text-right">Top Peak</th>
+<th class="py-2.5 px-space-sm text-right">Avg Likes</th>
+<th class="py-2.5 px-space-sm text-right">Avg Comments</th>
+<th class="py-2.5 px-space-sm text-right">Saves/Shares</th>
+<th class="py-2.5 px-space-sm text-right">Eng Rate</th>
+<th class="py-2.5 px-space-sm text-center">Vs Bench</th>
+<th class="py-2.5 px-space-sm text-right">Index Score</th>
+<th class="py-2.5 px-space-sm text-center">Action</th>
+</tr>
+</thead>
+<tbody class="font-code-tabular text-code-tabular" id="matrix-table-body">
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="smile lines">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Smile Lines</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">42</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-primary-container/20">51,200</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary">42,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">142,400</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">2,410</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">184</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,820</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">5.8%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-tertiary font-semibold">+44.2%</span></td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-tertiary-container/20">98.2</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="slimmer cheeks">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Slimmer Cheeks</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">38</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-primary-container/15">48,700</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary">39,400</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">128,100</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">2,560</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">192</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,940</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">6.1%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-tertiary font-semibold">+37.1%</span></td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-tertiary-container/20">95.4</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="jawline definition">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Jawline Definition</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">35</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-primary-container/15">45,900</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary">36,500</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">119,500</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">2,110</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">165</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,480</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">5.2%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-tertiary font-semibold">+29.3%</span></td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-tertiary-container/15">92.8</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="neck" data-topic="double chin reducer">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Double Chin Reducer</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-secondary uppercase text-[10px]">NECK</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">31</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-primary-container/10">41,300</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary">34,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">98,200</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">1,820</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">144</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,290</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">4.9%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-tertiary font-semibold">+16.3%</span></td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-tertiary-container/10">88.0</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="dark circles reset">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Dark Circles Reset</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">29</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-primary-container/10">38,500</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary">31,800</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">91,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">1,790</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">138</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,310</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">5.5%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-tertiary font-semibold">+8.5%</span></td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-tertiary-container/10">84.6</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="body" data-topic="lymphatic drainage">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Lymphatic Drainage</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-tertiary uppercase text-[10px]">BODY</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">34</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface">35,200</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary">29,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">84,300</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">2,080</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">186</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,890</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-bold">6.8%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-tertiary font-semibold">+2.1%</span></td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface bg-tertiary-container/10">82.1</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="neck" data-topic="neck tension release">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Neck Tension Release</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-secondary uppercase text-[10px]">NECK</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">28</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface">33,400</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">27,400</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">74,200</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">1,410</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">104</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">940</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">4.7%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-on-surface-variant">-5.9%</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">76.4</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="forehead smooth">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Forehead Smooth</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">26</td>
+<td class="py-2.5 px-space-sm text-right font-bold text-on-surface">31,800</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">26,100</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">69,400</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">1,280</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">92</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">820</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">4.4%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-on-surface-variant">-10.4%</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">74.0</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="eye brow lift">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Eye Brow Lift</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">25</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">29,500</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">24,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">62,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">1,310</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">96</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">910</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">5.0%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-on-surface-variant">-16.9%</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">71.2</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="lip plumper massages">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Lip Plumper Massages</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">23</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">26,800</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">21,300</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">58,100</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">980</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">74</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">690</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">4.1%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-on-surface-variant">-24.5%</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">67.5</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="body" data-topic="posture &amp; clavicle">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Posture &amp; Clavicle</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-tertiary uppercase text-[10px]">BODY</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">21</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">22,100</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">18,500</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">49,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">1,120</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">88</td>
+<td class="py-2.5 px-space-sm text-right text-tertiary font-semibold">1,020</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">5.9%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-error">-37.7%</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">64.2</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="neck" data-topic="tech neck wrinkles">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Tech Neck Wrinkles</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-secondary uppercase text-[10px]">NECK</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">22</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">19,400</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">15,200</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">38,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">640</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">42</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">410</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">3.8%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-error">-45.3%</span></td>
+<td class="py-2.5 px-space-sm text-right text-error font-semibold">55.8</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="face" data-topic="nose slimming sculpt">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Nose Slimming Sculpt</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-primary uppercase text-[10px]">FACE</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">19</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">16,200</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">13,100</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">34,000</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">510</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">38</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">330</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">3.6%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-error">-54.3%</span></td>
+<td class="py-2.5 px-space-sm text-right text-error font-semibold">51.0</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-category="body" data-topic="decollete smooth">
+<td class="py-2.5 px-space-sm font-headline-sm text-body-md text-on-surface font-semibold">Decollete Smooth</td>
+<td class="py-2.5 px-space-sm"><span class="px-1 py-0.5 bg-surface-container-high text-tertiary uppercase text-[10px]">BODY</span></td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">16</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">11,800</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">9,200</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">24,100</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">340</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">22</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">195</td>
+<td class="py-2.5 px-space-sm text-right text-on-surface">3.2%</td>
+<td class="py-2.5 px-space-sm text-center"><span class="text-error">-66.7%</span></td>
+<td class="py-2.5 px-space-sm text-right text-error font-semibold">42.5</td>
+<td class="py-2.5 px-space-sm text-center"><button class="text-primary hover:text-on-surface transition-colors font-label-caps text-[10px] uppercase font-semibold">Detail →</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="flex flex-col lg:flex-row items-stretch justify-between bg-surface-container-lowest p-space-base gap-space-base shadow-sm">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-xl">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant uppercase">
+<span>TOP QUARTILE REACH</span>
+<span class="w-2 h-2 bg-tertiary"></span>
+</div>
+<span class="font-metric-lg text-metric-lg text-tertiary font-bold">46.8K <span class="font-body-md text-body-md font-normal text-on-surface-variant">avg views</span></span>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">Smile Lines, Cheeks, Jawline, Double Chin</span>
+</div>
+<div class="hidden sm:block h-12 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant uppercase">
+<span>BOTTOM QUARTILE REACH</span>
+<span class="w-2 h-2 bg-error"></span>
+</div>
+<span class="font-metric-lg text-metric-lg text-error font-bold">12.4K <span class="font-body-md text-body-md font-normal text-on-surface-variant">avg views</span></span>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">Decollete, Tech Neck, Nose Sculpt</span>
+</div>
+<div class="hidden sm:block h-12 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary uppercase font-semibold">STRATEGIC DISPERSION GAP</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-metric-lg text-metric-lg text-on-surface font-bold">3.7x</span>
+<span class="font-label-caps text-label-caps text-tertiary font-semibold">VARIANCE MULTIPLIER</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">Shifting 20% production from Q4 to Q1 yields +142K projected views/mo</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end lg:self-center">
+<button class="px-space-base py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase transition-colors">Bulk Tag Content</button>
+<button class="px-space-base py-2 bg-primary hover:bg-primary-container text-on-primary font-label-caps text-label-caps uppercase font-bold transition-colors">Deploy Production Rebalance</button>
+</div>
+</section>
+<script>
+    (function () {
+      const searchInput = document.getElementById('topic-search-input');
+      const sortSelect = document.getElementById('topic-sort-select');
+      const rankingContainer = document.getElementById('topics-ranking-container');
+      const tableBody = document.getElementById('matrix-table-body');
+      const tabBtns = document.querySelectorAll('.topic-tab-btn');
+
+      let currentCategory = 'all';
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => {
+            b.classList.remove('bg-surface-container-high', 'text-on-surface');
+            b.classList.add('text-on-surface-variant');
+          });
+          btn.classList.add('bg-surface-container-high', 'text-on-surface');
+          btn.classList.remove('text-on-surface-variant');
+
+          currentCategory = btn.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+      }
+
+      if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+          applySorting(sortSelect.value);
+        });
+      }
+
+      function applyFilters() {
+        const query = (searchInput?.value || '').toLowerCase().trim();
+        const rankingRows = document.querySelectorAll('.topic-bar-row');
+        const matrixRows = tableBody.querySelectorAll('tr');
+
+        rankingRows.forEach(row => {
+          const category = row.getAttribute('data-category') || '';
+          const name = row.querySelector('.font-headline-sm')?.textContent?.toLowerCase() || '';
+          const matchesCat = currentCategory === 'all' || category === currentCategory;
+          const matchesSearch = !query || name.includes(query) || category.includes(query);
+
+          row.style.display = matchesCat && matchesSearch ? 'flex' : 'none';
+        });
+
+        matrixRows.forEach(row => {
+          const category = row.getAttribute('data-category') || '';
+          const topic = row.getAttribute('data-topic') || '';
+          const matchesCat = currentCategory === 'all' || category === currentCategory;
+          const matchesSearch = !query || topic.includes(query) || category.includes(query);
+
+          row.style.display = matchesCat && matchesSearch ? '' : 'none';
+        });
+      }
+
+      function applySorting(criterion) {
+        const rows = Array.from(document.querySelectorAll('.topic-bar-row'));
+
+        rows.sort((a, b) => {
+          let valA = 0, valB = 0;
+          if (criterion === 'avg-views') {
+            valA = parseFloat(a.getAttribute('data-avg') || 0);
+            valB = parseFloat(b.getAttribute('data-avg') || 0);
+          } else if (criterion === 'median-views') {
+            valA = parseFloat(a.getAttribute('data-median') || 0);
+            valB = parseFloat(b.getAttribute('data-median') || 0);
+          } else if (criterion === 'eng-rate') {
+            valA = parseFloat(a.getAttribute('data-eng') || 0);
+            valB = parseFloat(b.getAttribute('data-eng') || 0);
+          } else if (criterion === 'reels') {
+            valA = parseInt(a.getAttribute('data-reels') || 0, 10);
+            valB = parseInt(b.getAttribute('data-reels') || 0, 10);
+          } else if (criterion === 'score') {
+            valA = parseFloat(a.getAttribute('data-score') || 0);
+            valB = parseFloat(b.getAttribute('data-score') || 0);
+          }
+          return valB - valA;
+        });
+
+        rows.forEach(r => rankingContainer.appendChild(r));
+      }
+    })();
+  </script>
+</div></main></div></body></html>
