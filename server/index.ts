@@ -34,12 +34,18 @@ app.use(
 app.use(express.json({ limit: "2mb" }));
 
 app.get("/", (_req, res) => {
+  const profiles = getConfiguredProfiles().map((profile) => ({
+    id: profile.id,
+    label: profile.label,
+    platform: profile.platform,
+  }));
   res.json({
     ok: true,
     service: "content-intel-api",
     message: "This is the API only. Open the Vercel frontend URL in the browser.",
     health: "/api/health",
-    profiles: "/api/instagram/profiles",
+    profilesPath: "/api/instagram/profiles",
+    profiles,
   });
 });
 
